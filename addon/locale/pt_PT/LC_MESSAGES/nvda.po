@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FrequentText\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2020-03-27 17:59+0000\n"
+"PO-Revision-Date: 2020-03-27 18:30+0000\n"
+"Last-Translator: Marcos Antonio de Oliveira <mao-mail@uol.com.br>\n"
+"Language-Team: Equipa portuguesa do NVDA\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ../../../GlobalPlugins\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: addon\globalPlugins\frequentText\__init__.py:41
+msgid "Opens a dialog box to registe and paste frequent blocks of text."
+msgstr ""
+"Abre uma janela para registar, gerir e selecionar os blocos a colar no texto."
+
+#. Translators: Title of add-on, present in the dialog boxes.
+#: addon\globalPlugins\frequentText\__init__.py:48
+msgid "Frequent Text"
+msgstr "Texto frequente"
+
+#. Create a label and a list view for Frequent Text list.
+#. Label is above the list view.
+#. Translators: Label the list view that contains the Blocks.
+#: addon\globalPlugins\frequentText\__init__.py:77
+msgid "Text blocks list"
+msgstr "Lista dos blocos de texto"
+
+#. Translators: Button Label to add a new block.
+#: addon\globalPlugins\frequentText\__init__.py:90
+msgid "&Add"
+msgstr "&Adicionar"
+
+#. Translators: Button Label that paste the block to the edit box.
+#: addon\globalPlugins\frequentText\__init__.py:95
+msgid "&Paste"
+msgstr "&Colar"
+
+#. Translators: Button Label that renames the name of the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:100
+msgid "Re&name"
+msgstr "&Renomear"
+
+#. Translators: Button Label that change the blocks of text.
+#: addon\globalPlugins\frequentText\__init__.py:105
+msgid "Change &blocks"
+msgstr "Modificar &blocos"
+
+#. Translators: Button Label that removes the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:110
+msgid "&Remove"
+msgstr "&Eliminar"
+
+#. Translators: Button Label that closes the add-on.
+#: addon\globalPlugins\frequentText\__init__.py:114
+msgid "&Close"
+msgstr "&Fechar"
+
+#. Translators: Message dialog box to add a name to a new block.
+#: addon\globalPlugins\frequentText\__init__.py:134
+msgid "Enter a name for the block"
+msgstr "Introduza um nome para o bloco."
+
+#. Translators: Announcement that the block name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:143
+#: addon\globalPlugins\frequentText\__init__.py:234
+msgid "There is already a block with this name!"
+msgstr "Já existe um bloco com este nome!"
+
+#. Translators: Message dialog box to add a new block of text.
+#: addon\globalPlugins\frequentText\__init__.py:153
+msgid "Enter the block of text"
+msgstr "Introduza o bloco de texto"
+
+#. Translators: Message dialog to rename the block of text.
+#: addon\globalPlugins\frequentText\__init__.py:212
+#, python-format
+msgid "Enter a new name for %s"
+msgstr "Introduza um novo nome para %s"
+
+#. Translators: Message dialog box to change a block of text.
+#: addon\globalPlugins\frequentText\__init__.py:249
+msgid "Enter the new block of text or press Enter to confirm"
+msgstr "Introduza o novo bloco de texto ou pressione Enter para confirmar"
+
+#. Translators: Message dialog box to remove the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:292
+#, python-format
+msgid "Are you sure you want to remove %s?"
+msgstr "Tem a certeza que quer eliminar %s da lista de blocos?"
+
+#. Translators: Title of the column of the list view.
+#: addon\globalPlugins\frequentText\__init__.py:314
+msgid "Name"
+msgstr "Nome"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: buildVars.py:17
+msgid "Regists blocks of text frequently used"
+msgstr "Regista blocos de texto frequentemente usados"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
+msgid ""
+"Stores and make possible the entry of frequently used blocks of text. "
+"Command: Windows+F12."
+msgstr ""
+"Armazena e torna possível a introdução de blocos de texto frequentemente "
+"usados. Comando: Windows+f12."
+
+#~ msgid "Do you want to add a new line?"
+#~ msgstr "Quer adicionar uma nova linha?"
+
+#, fuzzy
+#~| msgid "Frequent Text"
+#~ msgid "Frequent text"
+#~ msgstr "Texto frequente"
+
+#~ msgid "You do not have any block registered."
+#~ msgstr "Não tem nenhum bloco registado."
+
+#~ msgid "&Add block"
+#~ msgstr "&Adicionar bloco"
+
+#~ msgid "&Paste the block"
+#~ msgstr "&Colar o bloco"
+
+#~ msgid "&Add folder"
+#~ msgstr "&Añadir carpeta"
+
+#, fuzzy
+#~| msgid "There is already a folder with this nickname!"
+#~ msgid "There is already a folder with this name!"
+#~ msgstr "¡Ya existe una carpeta con esta referencia!"
+
+#~ msgid ""
+#~ "You do not have added folders and is not in the windows explorer window "
+#~ "to make a record"
+#~ msgstr ""
+#~ "No tienes ninguna carpeta registrada y no estás en la ventana del "
+#~ "Explorador de Windows para efectuar un registro"
+
+#~ msgid "Favorite folders"
+#~ msgstr "Carpetas favoritas"
+
+#~ msgid "Favorite folders list"
+#~ msgstr "Lista de carpetas favoritas"
+
+#~ msgid "&Show paths in the list"
+#~ msgstr "&Ver las direcciones en la lista"
+
+#~ msgid "&Open folder"
+#~ msgstr "Abrir carpe&ta"
+
+#~ msgid "Write in the e&dit box"
+#~ msgstr "Escriba en el cuadro de e&dición"
+
+#~ msgid "Ab&out"
+#~ msgstr "Ace&rca de"
+
+#, python-format
+#~ msgid "File not found: %s."
+#~ msgstr "Archivo no encontrado: %s."
+
+#, python-format
+#~ msgid "Enter a new nickname for %s"
+#~ msgstr "Introducir un nuevo nombre de referencia para %s."
+
+#~ msgid "Nickname"
+#~ msgstr "Referencia"
+
+#~ msgid "Address"
+#~ msgstr "Dirección"
+
+#~ msgid "Enter a nickname"
+#~ msgstr "Entre com um nome de referência para a pasta"
+
+#~ msgid "&Past in editable text"
+#~ msgstr "&Colar em caixa de texto"
+
+#~ msgid "There is already a folder with this reference!"
+#~ msgstr "Já existe uma pasta com este nome!"
+
+#~ msgid "Add to group call"
+#~ msgstr "Adicionar à chamada em grupo"
+
+#~ msgid "Added to the conference"
+#~ msgstr "Adicionada a conferência"
+
+#~ msgid "Could not be added to the conference"
+#~ msgstr ""
+#~ "Não foi possível adicionar a chamada a conferência.Para utilizar esse "
+#~ "recurso você precisa ser o administrador da conferência."
+
+#~ msgid "Notify window not found"
+#~ msgstr "Janela de notificação de chamada não encontrada"

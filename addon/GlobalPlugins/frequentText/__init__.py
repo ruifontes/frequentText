@@ -12,6 +12,8 @@ from keyboardHandler import KeyboardInputGesture
 import ui
 from configobj import ConfigObj
 import time
+import core
+import watchdog
 import globalPluginHandler
 import addonHandler
 addonHandler.initTranslation()
@@ -191,16 +193,21 @@ class FrequentTextDialog(wx.Dialog):
 		index=self.listBox.GetFocusedItem()
 		name = self.listBox.GetItemText(index)
 		paste = self.dictBlocks [name]
-		for x in range(len(paste)):
-			if paste[x] == "":
-				time.sleep(0.1)
-				KeyboardInputGesture.fromName("Enter").send()
-			else:
-				api.copyToClip(str(paste[x]))
-				time.sleep(0.1)
-				KeyboardInputGesture.fromName("Control+v").send()
-				KeyboardInputGesture.fromName("Enter").send()
-				time.sleep(0.1)
+		pasteStr = "\r\n".join(paste)
+		if len(paste) >= 2:
+			pasteStr += "\r\n"
+		clipboardBackup = api.getClipData()
+		api.copyToClip(pasteStr)
+		time.sleep(0.1)
+		api.processPendingEvents(False)
+		focus = api.getFocusObject()
+		if focus.windowClassName == 'ConsoleWindowClass':
+			# Windows console window - Control+V doesn't work here, so using an alternative method here
+			WM_COMMAND = 0x0111
+			watchdog.cancellableSendMessage(focus.windowHandle, WM_COMMAND, 0xfff1, 0)
+		else:
+			KeyboardInputGesture.fromName("Control+v").send()
+		core.callLater(300, lambda: api.copyToClip(clipboardBackup))
 
 	def onRename(self, evt):
 		# Renames the selected block.

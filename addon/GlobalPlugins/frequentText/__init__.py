@@ -194,6 +194,8 @@ class FrequentTextCatgsDialog(wx.Dialog):
 				config.rename(nameCatg, newKeyCatg)
 				config.write()
 				self.listCatgs = config.keys()
+				#self.listCatgs.append(newKeyCatg)
+				#self.listCatgs.remove(nameCatg)
 				listCatgs = config.keys()
 				# update the list view.
 				self.updateCatgs(listCatgs, index)
@@ -302,7 +304,7 @@ class FrequentTextDialog(wx.Dialog):
 
 		changeButtonID = wx.Window.NewControlId()
 		# Translators: Button Label that change the blocks of text.
-		self.changeButton = wx.Button(self, changeButtonID, _("Change &blocks"))
+		self.changeButton = wx.Button(self, changeButtonID, _("&Change blocks"))
 		buttonsSizer.Add (self.changeButton)
 
 		moveButtonID = wx.Window.NewControlId()
@@ -314,11 +316,6 @@ class FrequentTextDialog(wx.Dialog):
 		# Translators: Button Label that removes the selected block.
 		self.removeButton = wx.Button (self, removeButtonID, _("&Remove"))
 		buttonsSizer.Add (self.removeButton)
-
-		goBackButtonID = wx.Window.NewControlId()
-		# Translators: Label  for button to go back to categories list.
-		self.goBackButton = wx.Button (self, goBackButtonID, _("&Back to categories"))
-		buttonsSizer.Add (self.goBackButton)
 
 		# Translators: Button Label that closes the add-on.
 		cancelButton = wx.Button(self, wx.ID_CANCEL, _("&Close"))
@@ -334,7 +331,6 @@ class FrequentTextDialog(wx.Dialog):
 		self.Bind(wx.EVT_BUTTON, self.onChangeBlocks, id = changeButtonID)
 		self.Bind(wx.EVT_BUTTON, self.onMove, id = moveButtonID)
 		self.Bind(wx.EVT_BUTTON, self.onRemove, id = removeButtonID)
-		self.Bind(wx.EVT_BUTTON, self.goBack, id = goBackButtonID)
 		self.listBox.Bind(wx.EVT_KEY_DOWN, self.onKeyPress)
 		mainSizer.Fit(self)
 		self.SetSizer(mainSizer)
@@ -389,6 +385,8 @@ class FrequentTextDialog(wx.Dialog):
 		self.listBox.Focus (newIndex)
 		self.listBox.Select(newIndex)
 		self.listBox.SetFocus()
+		#name = ""
+		#newBlock = []
 		return
 
 	def onPaste (self, evt):
@@ -403,18 +401,31 @@ class FrequentTextDialog(wx.Dialog):
 		pasteStr = "\r\n".join(paste)
 		if len(paste) >= 2:
 			pasteStr += "\r\n"
-		clipboardBackup = api.getClipData()
-		api.copyToClip(pasteStr)
-		time.sleep(0.1)
-		api.processPendingEvents(False)
-		focus = api.getFocusObject()
-		if focus.windowClassName == "ConsoleWindowClass":
-			# Windows console window - Control+V doesn't work here, so using an alternative method here
-			WM_COMMAND = 0x0111
-			watchdog.cancellableSendMessage(focus.windowHandle, WM_COMMAND, 0xfff1, 0)
+		try:
+			clipboardBackup = api.getClipData()
+		except OSError:
+			api.copyToClip(pasteStr)
+			time.sleep(0.1)
+			api.processPendingEvents(False)
+			focus = api.getFocusObject()
+			if focus.windowClassName == "ConsoleWindowClass":
+				# Windows console window - Control+V doesn't work here, so using an alternative method here
+				WM_COMMAND = 0x0111
+				watchdog.cancellableSendMessage(focus.windowHandle, WM_COMMAND, 0xfff1, 0)
+			else:
+				KeyboardInputGesture.fromName("Control+v").send()
 		else:
-			KeyboardInputGesture.fromName("Control+v").send()
-		core.callLater(300, lambda: api.copyToClip(clipboardBackup))
+			api.copyToClip(pasteStr)
+			time.sleep(0.1)
+			api.processPendingEvents(False)
+			focus = api.getFocusObject()
+			if focus.windowClassName == "ConsoleWindowClass":
+				# Windows console window - Control+V doesn't work here, so using an alternative method here
+				WM_COMMAND = 0x0111
+				watchdog.cancellableSendMessage(focus.windowHandle, WM_COMMAND, 0xfff1, 0)
+			else:
+				KeyboardInputGesture.fromName("Control+v").send()
+			core.callLater(300, lambda: api.copyToClip(clipboardBackup))
 
 	def onRename(self, evt):
 		# Renames the selected block.
@@ -451,29 +462,29 @@ class FrequentTextDialog(wx.Dialog):
 		config = ConfigObj(_ffIniFile, list_values=True, encoding = "utf-8")
 		blocks = config[Catg]
 		paste = blocks[name]
-		oldBlock = ""
-		for x in range(len(paste)):
-			oldBlock += ("%s \n")%paste[x]
-			x = x+1
 		self.dialogActive = True
 
-		# Translators: Message dialog box to change a block of text.
-		dlg = wx.TextEntryDialog(gui.mainFrame, _("Change the block of text as you want and press Tab to Ok button and Enter to confirm"), self.title, style = wx.OK | wx.CANCEL | wx.TE_MULTILINE)
-		dlg.SetValue(oldBlock)
-		if dlg.ShowModal() == wx.ID_OK:
-			nBlock = dlg.GetValue()
-		else:
-			dlg.Destroy()
-			return
+		changeBlock = []
+		for x in range(len(paste)):
+			# Translators: Message dialog box to change a block of text.
+			dlg = wx.TextEntryDialog(gui.mainFrame, _("Enter the new block of text or press Enter to confirm"), self.title)
+			dlg.SetValue(paste[x])
+			if dlg.ShowModal() == wx.ID_OK:
+				nBlock = dlg.GetValue()
+			else:
+				dlg.Destroy()
+				return
 
-		if nBlock != "":
-			changeBlock = nBlock.split("\n")
-		else:
-			dlg.Destroy()
-			return
+			if nBlock != "":
+				changeBlock.append(nBlock)
+			elif nBlock == paste[x]:
+				changeBlock.append(nBlock)
+			else:
+				dlg.Destroy()
+				return
 
 		# update the dictionary.
-		blocks.__delitem__(name)
+		blocks.__delitem__(name) #, paste)
 		blocks.__setitem__(name, changeBlock)
 		config.write()
 
@@ -516,6 +527,10 @@ class FrequentTextDialog(wx.Dialog):
 	def onRemove (self, evt):
 		# Removes the selected block.
 		evt.Skip()
+		self.removeItem()
+
+	def removeItem (self):
+		# Removes the selected block.
 		index=self.listBox.GetFocusedItem()
 		name = self.listBox.GetItemText(index)
 		self.dialogActive = True
@@ -530,14 +545,6 @@ class FrequentTextDialog(wx.Dialog):
 				self.listBox.Select(self.listBox.GetFocusedItem())
 		self.dialogActive = False
 		self.listBox.SetFocus()
-
-	def goBack(self, evt):
-		# Returns to categories list dialog
-		evt.Skip()
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		listCatgs = config.keys()
-		self.Close()
-		GlobalPlugin.showFrequentTextCatgsDialog(self, listCatgs)
 
 	def onKeyPress(self, evt):
 		# Sets enter key  to paste the text and delete to remove it.

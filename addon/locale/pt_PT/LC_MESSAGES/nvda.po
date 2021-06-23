@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FrequentText\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2021-06-20 19:32+0100\n"
-"PO-Revision-Date: 2021-06-20 19:49+0100\n"
+"POT-Creation-Date: 2021-06-23 01:19+0100\n"
+"PO-Revision-Date: 2021-06-23 01:25+0100\n"
 "Last-Translator: Rui Fontes  <rui.fontes@tiflotecnia.com>\n"
 "Language-Team: Equipa portuguesa do NVDA\n"
 "Language: pt\n"
@@ -49,25 +49,25 @@ msgstr "Mostrar &Entradas"
 #. Translators: Button Label to add a new category
 #. Translators: Button Label to add a new block.
 #: addon\globalPlugins\frequentText\__init__.py:120
-#: addon\globalPlugins\frequentText\__init__.py:290
+#: addon\globalPlugins\frequentText\__init__.py:292
 msgid "&Add"
 msgstr "&Adicionar"
 
 #. Translators: Button Label that renames the name of the selected block.
 #: addon\globalPlugins\frequentText\__init__.py:125
-#: addon\globalPlugins\frequentText\__init__.py:300
+#: addon\globalPlugins\frequentText\__init__.py:302
 msgid "Re&name"
 msgstr "&Renomear"
 
 #. Translators: Button Label that removes the selected block.
 #: addon\globalPlugins\frequentText\__init__.py:130
-#: addon\globalPlugins\frequentText\__init__.py:315
+#: addon\globalPlugins\frequentText\__init__.py:317
 msgid "&Remove"
 msgstr "&Eliminar"
 
 #. Translators: Button Label that closes the add-on.
 #: addon\globalPlugins\frequentText\__init__.py:134
-#: addon\globalPlugins\frequentText\__init__.py:324
+#: addon\globalPlugins\frequentText\__init__.py:321
 msgid "&Close"
 msgstr "&Fechar"
 
@@ -78,87 +78,80 @@ msgstr "Introduza um nome para a categoria."
 
 #. Translators: Announcement that the category name already exists in the list.
 #: addon\globalPlugins\frequentText\__init__.py:162
-#: addon\globalPlugins\frequentText\__init__.py:207
+#: addon\globalPlugins\frequentText\__init__.py:209
 msgid "There is already a category with this name!"
 msgstr "Já existe uma categoria com este nome!"
 
 #. Translators: Message dialog to rename the category
 #. Translators: Message dialog to rename the block of text.
 #: addon\globalPlugins\frequentText\__init__.py:189
-#: addon\globalPlugins\frequentText\__init__.py:426
+#: addon\globalPlugins\frequentText\__init__.py:437
 #, python-format
 msgid "Enter a new name for %s"
 msgstr "Introduza um novo nome para %s"
 
 #. Translators: Message dialog box to remove the selected category
 #. Translators: Message dialog box to remove the selected block.
-#: addon\globalPlugins\frequentText\__init__.py:217
-#: addon\globalPlugins\frequentText\__init__.py:523
+#: addon\globalPlugins\frequentText\__init__.py:219
+#: addon\globalPlugins\frequentText\__init__.py:538
 #, python-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Tem a certeza que quer eliminar %s da lista de blocos?"
 
 #. Translators: Title of the column of the list view.
-#: addon\globalPlugins\frequentText\__init__.py:250
-#: addon\globalPlugins\frequentText\__init__.py:554
+#: addon\globalPlugins\frequentText\__init__.py:252
+#: addon\globalPlugins\frequentText\__init__.py:561
 msgid "Name"
 msgstr "Nome"
 
 #. Create a label and a list view for Frequent Text list.
 #. Label is above the list view.
 #. Translators: Label the list view that contains the Blocks.
-#: addon\globalPlugins\frequentText\__init__.py:277
+#: addon\globalPlugins\frequentText\__init__.py:279
 #, python-format
 msgid "List of text blocks of %s category"
 msgstr "Lista de blocos de texto da categoria %s"
 
 #. Translators: Button Label that paste the block to the edit box.
-#: addon\globalPlugins\frequentText\__init__.py:295
+#: addon\globalPlugins\frequentText\__init__.py:297
 msgid "&Paste"
 msgstr "&Colar"
 
 #. Translators: Button Label that change the blocks of text.
-#: addon\globalPlugins\frequentText\__init__.py:305
-msgid "Change &blocks"
+#: addon\globalPlugins\frequentText\__init__.py:307
+msgid "&Change blocks"
 msgstr "Modificar &blocos"
 
 #. Translators: Label  for btton to move the selected block to other category.
-#: addon\globalPlugins\frequentText\__init__.py:310
+#: addon\globalPlugins\frequentText\__init__.py:312
 msgid "&Move"
 msgstr "&Mover"
 
-#. Translators: Label  for button to go back to categories list.
-#: addon\globalPlugins\frequentText\__init__.py:320
-msgid "&Back to categories"
-msgstr "&Voltar a categorias"
-
 #. Translators: Message dialog box to add a name to a new block.
-#: addon\globalPlugins\frequentText\__init__.py:346
+#: addon\globalPlugins\frequentText\__init__.py:342
 msgid "Enter a name for the block"
 msgstr "Introduza um nome para o bloco."
 
 #. Translators: Announcement that the block name already exists in the list.
-#: addon\globalPlugins\frequentText\__init__.py:355
-#: addon\globalPlugins\frequentText\__init__.py:444
+#: addon\globalPlugins\frequentText\__init__.py:351
+#: addon\globalPlugins\frequentText\__init__.py:455
 msgid "There is already a block with this name!"
 msgstr "Já existe um bloco com este nome!"
 
 #. Translators: Message dialog box to add a new block of text.
-#: addon\globalPlugins\frequentText\__init__.py:365
+#: addon\globalPlugins\frequentText\__init__.py:361
 msgid "Enter the block of text"
 msgstr "Introduza o bloco de texto"
 
 #. Translators: Message dialog box to change a block of text.
-#: addon\globalPlugins\frequentText\__init__.py:461
-msgid ""
-"Change the block of text as you want and press Tab to Ok button and Enter to "
-"confirm"
+#: addon\globalPlugins\frequentText\__init__.py:470
+msgid "Enter the new block of text or press Enter to confirm"
 msgstr ""
 "Altere o bloco de texto como quiser, pressione Tab para o botão Ok e Enter "
 "para confirmar"
 
 #. Translators: Message dialog box to move the selected block to other category.
-#: addon\globalPlugins\frequentText\__init__.py:497
+#: addon\globalPlugins\frequentText\__init__.py:508
 #, python-format
 msgid ""
 "If you really want to move %s from %s category, enter the name of the new, "
@@ -168,7 +161,7 @@ msgstr ""
 "já existente"
 
 #. Translators: Announcement that the category does not exists.
-#: addon\globalPlugins\frequentText\__init__.py:513
+#: addon\globalPlugins\frequentText\__init__.py:524
 msgid "There is no such category!"
 msgstr "Não existe essa categoria!"
 
@@ -188,6 +181,9 @@ msgid ""
 msgstr ""
 "Armazena e torna possível a introdução de blocos de texto frequentemente "
 "usados. Comando: Windows+f12."
+
+#~ msgid "&Back to categories"
+#~ msgstr "&Voltar a categorias"
 
 #~ msgid "Frequent Text"
 #~ msgstr "Texto frequente"

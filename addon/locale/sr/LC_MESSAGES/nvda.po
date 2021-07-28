@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: FrequentText\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2021-07-28 19:49+0100\n"
-"PO-Revision-Date: 2021-07-28 20:08+0100\n"
-"Last-Translator: Rui Fontes  <rui.fontes@tiflotecnia.com>\n"
+"PO-Revision-Date: 2021-07-29 00:50+0100\n"
+"Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-Basepath: ../../../GlobalPlugins\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -18,17 +18,16 @@ msgstr ""
 
 #. For translators: Message to be announced during Keyboard Help
 #: addon\globalPlugins\frequentText\__init__.py:93
-#, fuzzy
-#| msgid "Opens a dialog box to registe and paste frequent blocks of text."
 msgid ""
 "Opens a dialog box to registe, manage and paste frequent blocks of text."
-msgstr "Otvara dijalog za registraciju i lepljenje čestih blokova teksta"
+msgstr ""
+"Otvara dijalog za upisivanje, upravljanje i lepljenje čestih blokova teksta"
 
 #. For translators: Name of the section in "Input gestures" dialog.
 #: addon\globalPlugins\frequentText\__init__.py:95
 #: addon\globalPlugins\frequentText\__init__.py:133
 msgid "Text editing"
-msgstr ""
+msgstr "Uređivanje teksta"
 
 #. Translators: Title of categories list dialog box.
 #. Translators: Title of Blocks list dialog boxes.
@@ -36,31 +35,25 @@ msgstr ""
 #: addon\globalPlugins\frequentText\__init__.py:120
 #: addon\globalPlugins\frequentText\__init__.py:699
 #: addon\globalPlugins\frequentText\__init__.py:835
-#, fuzzy
-#| msgid "Frequent Text"
 msgid "Frequent text"
 msgstr "Čest tekst"
 
 #. For translators: Message to be announced during Keyboard Help
 #: addon\globalPlugins\frequentText\__init__.py:131
-#, fuzzy
-#| msgid "Opens a dialog box to registe and paste frequent blocks of text."
 msgid "Opens a dialog box with the text blocks of first or default category"
-msgstr "Otvara dijalog za registraciju i lepljenje čestih blokova teksta"
+msgstr "Otvara dijalog sa blokovima teksta prve ili podrazumevane kategorije"
 
 #. Create a label and a list view for categories list.
 #. Label is above the list view.
 #. Translators: Label the list view that contains the categories
 #: addon\globalPlugins\frequentText\__init__.py:165
-#, fuzzy
-#| msgid "Favorite folders list"
 msgid "Categories list"
-msgstr "Lista de carpetas favoritas"
+msgstr "Lista kategorija"
 
 #. Translators: Button Label to show the entries in the selected category
 #: addon\globalPlugins\frequentText\__init__.py:178
 msgid "&Show entries"
-msgstr ""
+msgstr "&Prikaži stavke"
 
 #. Translators: Button Label to add a new category
 #. Translators: Button Label to add a new block.
@@ -78,7 +71,7 @@ msgstr "&Preimenuj"
 #. Translators: Button Label to set the selected category as default
 #: addon\globalPlugins\frequentText\__init__.py:193
 msgid "Set &category as default"
-msgstr ""
+msgstr "Podesi &kategoriju kao podrazumevanu"
 
 #. Translators: Button Label that removes the selected block.
 #: addon\globalPlugins\frequentText\__init__.py:198
@@ -95,18 +88,14 @@ msgstr "&Zatvori"
 
 #. Translators: Message dialog box to add a name to a new category
 #: addon\globalPlugins\frequentText\__init__.py:228
-#, fuzzy
-#| msgid "Enter a name for the block"
 msgid "Enter a name for the category"
-msgstr "Upiši ime za blok"
+msgstr "Upiši ime za kategoriju"
 
 #. Translators: Announcement that the category name already exists in the list.
 #: addon\globalPlugins\frequentText\__init__.py:237
 #: addon\globalPlugins\frequentText\__init__.py:285
-#, fuzzy
-#| msgid "There is already a block with this name!"
 msgid "There is already a category with this name!"
-msgstr "Već postoji blok sa ovim imenom!"
+msgstr "Već postoji kategorija sa ovim imenom!"
 
 #. Translators: Message dialog to rename the category
 #. Translators: Message dialog to rename the block of text.
@@ -136,7 +125,7 @@ msgstr "Ime"
 #: addon\globalPlugins\frequentText\__init__.py:370
 #, python-format
 msgid "List of text blocks of %s category"
-msgstr ""
+msgstr "Lista blokova teksta kategorije %s"
 
 #. Translators: Button Label that paste the block to the edit box.
 #: addon\globalPlugins\frequentText\__init__.py:388
@@ -145,20 +134,18 @@ msgstr "&Nalepi"
 
 #. Translators: Button Label that change the blocks of text.
 #: addon\globalPlugins\frequentText\__init__.py:398
-#, fuzzy
-#| msgid "Change &blocks"
 msgid "&Change blocks"
-msgstr "Promeni &blokove"
+msgstr "&Promeni blokove"
 
 #. Translators: Label  for btton to move the selected block to other category.
 #: addon\globalPlugins\frequentText\__init__.py:403
 msgid "&Move"
-msgstr ""
+msgstr "&Premesti"
 
 #. Translators: Label  for button to go back to categories list.
 #: addon\globalPlugins\frequentText\__init__.py:413
 msgid "&Back to categories"
-msgstr ""
+msgstr "&Nazad na kategorije"
 
 #. Translators: Message dialog box to add a name to a new block.
 #: addon\globalPlugins\frequentText\__init__.py:446
@@ -178,12 +165,12 @@ msgstr "Upiši blok teksta"
 
 #. Translators: Message dialog box to change a block of text.
 #: addon\globalPlugins\frequentText\__init__.py:577
-#, fuzzy
-#| msgid "Enter the new block of text or press Enter to confirm"
 msgid ""
 "Change the block of text as you want and press Tab to Ok button and Enter to "
 "confirm"
-msgstr "Upiši novi blok teksta ili pritisni enter za potvrdu"
+msgstr ""
+"Promenite blok kako želite a zatim pritisnite Tab i aktivirajte dugme u redu "
+"da biste potvrdili"
 
 #. Translators: Message dialog box to move the selected block to other category.
 #: addon\globalPlugins\frequentText\__init__.py:613
@@ -192,16 +179,18 @@ msgid ""
 "If you really want to move %s from %s category, enter the name of the new, "
 "already existing, category"
 msgstr ""
+"Ako zaista želite da prebacite %s iz %s kategorije, upišite ime nove, već "
+"postojeće kategorije"
 
 #. Translators: Announcement that the category does not exists.
 #: addon\globalPlugins\frequentText\__init__.py:629
 msgid "There is no such category!"
-msgstr ""
+msgstr "Nema ove kategorije!"
 
 #. Translators: Checkbox name in the configuration dialog
 #: addon\globalPlugins\frequentText\__init__.py:704
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Provera ažuriranja pri pokretanju"
 
 #: addon\globalPlugins\frequentText\__init__.py:795
 #, python-format
@@ -209,6 +198,8 @@ msgid ""
 "Please wait\n"
 "Downloading %s"
 msgstr ""
+"Molimo sačekajte \n"
+"Preuzima se %s"
 
 #: addon\globalPlugins\frequentText\__init__.py:799
 #, python-format
@@ -216,6 +207,8 @@ msgid ""
 "Please wait...\n"
 "Downloading  %s"
 msgstr ""
+"Molimo sačekajte...\n"
+"Preuzima se %s"
 
 #. Translators: Mensaje que anuncia la finalización del proceso.
 #: addon\globalPlugins\frequentText\__init__.py:824
@@ -225,6 +218,10 @@ msgid ""
 "Press the Confirm button to restart or the Close to terminate without "
 "restarting"
 msgstr ""
+"Ažuriranje završeno.\n"
+"Morate ponovo pokrenuti NVDA kako bi ove promene stupile na snagu.\n"
+"Pritisnite dugme potvrdi da ponovo pokrenete ili zatvori da završite bez "
+"ponovnog pokretanja"
 
 #. Translators: Mensaje que anuncia la existencia de un error
 #: addon\globalPlugins\frequentText\__init__.py:827
@@ -233,6 +230,9 @@ msgid ""
 "Check the Internet connection and try again.\n"
 "You may close this window"
 msgstr ""
+"Greška.\n"
+"Proverite vezu sa Internetom a zatim pokušajte ponovo.\n"
+"Možete da zatvorite ovaj prozor"
 
 #. Translators: Mensaje que informa de una nueva versión
 #: addon\globalPlugins\frequentText\__init__.py:842
@@ -240,29 +240,28 @@ msgid ""
 "Available a new version of this add-on. Do you want to download and install "
 "it now?"
 msgstr ""
+"Dostupna je nova verzija ovog dodatka. Da li želite odmah da je instalirate?"
 
 #: addon\globalPlugins\frequentText\__init__.py:843
 msgid "&Download and install"
-msgstr ""
+msgstr "&Preuzmi i instaliraj"
 
 #. Translators: título de la ventana
 #: addon\globalPlugins\frequentText\__init__.py:879
-#, fuzzy
-#| msgid "Frequent Text"
 msgid "Updating Frequent text"
-msgstr "Čest tekst"
+msgstr "Ažuriranje dodatka čest tekst"
 
 #. Translators: nombre del botón aceptar
 #: addon\globalPlugins\frequentText\__init__.py:894
 msgid "&Confirm"
-msgstr ""
+msgstr "&Potvrdi"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 #: buildVars.py:23
 msgid "Regists blocks of text frequently used"
-msgstr "Registruje često upisane blokove teksta"
+msgstr "Čuva često upisane blokove teksta"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

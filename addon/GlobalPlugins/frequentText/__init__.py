@@ -752,12 +752,12 @@ class HiloActualizacion(Thread):
 
 		self.frame = frame
 
-		p = urllib.request.Request("https://api.github.com/repos/GerardKessler/WhatsApp-desktop/releases")
+		p = urllib.request.Request("https://api.github.com/repos/ruifontes/frequentText/releases")
 		r = urllib.request.urlopen(p).read()
 		githubApi = json.loads(r.decode('utf-8'))
 		self.nombreUrl = githubApi[0]['assets'][0]['browser_download_url']
 
-		self.directorio = os.path.join(globalVars.appArgs.configPath, "tempWhatsApp")
+		self.directorio = os.path.join(globalVars.appArgs.configPath, "tempFreqText")
 
 		self.daemon = True
 		self.start()

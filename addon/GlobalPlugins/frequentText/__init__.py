@@ -43,7 +43,7 @@ defCatg = ""
 # for the auto update process
 def initConfiguration():
 	confspec = {
-		"isUpgrade": "boolean(default=False)",
+		"isUpgrade": "boolean(default=True)",
 	}
 	config.conf.spec["FrequentText"] = confspec
 

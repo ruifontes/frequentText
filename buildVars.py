@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Stores and make possible the entry of frequently used blocks of text. Command: Windows+F12."""),
 	# version
-	"addon_version": "21.07",
+	"addon_version": "21.07.29",
 	# Author(s)
 	"addon_author": u"Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com>",
 	# URL for the add-on documentation support

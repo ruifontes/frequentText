@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 # Part of frequentText add-on for NVDA.
-# written by Rui Fontes <rui.fontes@tiflotecnia.com>
+# written by Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes
 
 import os
 import globalVars

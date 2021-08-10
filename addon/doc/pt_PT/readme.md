@@ -1,19 +1,17 @@
 # Texto frequente #
 
+
 ## Informações
 * Autores: Rui Fontes e Ângelo Abrantes, baseado no trabalho de Marcos António de Oliveira
-* Actualizado em 28/07/2021
+* Actualizado em 09/08/2021
 * Descarregar a [versão estável][1]
-* Compatibilidade: NVDA versão 2019.3 e seguintes
+* Compatibilidade: NVDA versão 2021.1 e seguintes
+
 
 ## Apresentação
 Este extra fornece uma maneira de inserir rapidamente blocos de texto digitados com frequência nos documentos que escreve.
 Para organizar melhor os blocos de texto, eles podem ser agrupados em categorias.
 Pode definir uma categoria como padrão para acessar mais rapidamente os blocos dessa categoria.
-
-## Actualização automática
-A partir da versão 21.07 inclui uma função de verificação automática de actualização.
-Cada vez que o NVDA é iniciado, será verificado o repositório para ver se há alguma nova versão.
 
 
 ## Uso
@@ -33,4 +31,11 @@ Para colar o bloco de texto num campo de edição, seleccione o bloco e pression
 
 Na caixa de diálogo da lista de blocos também pode renomear, alterar o conteúdo, mudar de categoria ou eliminar um bloco de texto, ou voltar para a caixa de diálogo das categorias.
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/21.07/frequentText-21.07.nvda-addon
+
+## Atualização automática
+
+Este extra inclui um recurso de atualização automática.
+A verificação de existência de nova versão será executada cada vez que o NVDA é carregado.
+Se não desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configurações e na categoria do extra desmarque a caixa de verificação.
+
+[1]: https://github.com/ruifontes/frequentText/releases/download/21.08/frequentText-21.08.nvda-addon

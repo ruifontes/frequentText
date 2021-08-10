@@ -1,19 +1,18 @@
 # Frequent text #
 
+
 ## Informations
 * Authors: Rui Fontes and Ângelo Abrantes, based on work of Marcos António de Oliveira
-* Updated in 28/07/2021
+* Updated in 09/08/2021
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and posteriors
+
 
 ## Presentation
 This add-on provides a way to quickly insert blocks of text you type frequently in documents you write.
 To better organize the text blocks, they can be grouped into categories.
 It is possible to set a category as default to quickly access its blocks.
 
-## Auto update
-Starting in version 21.07 includes a auto update check function.
-Everytime NVDA starts, it will check the repository to see if there are any new version.
 
 ## Usage
 To start using this add-on you will need to set the categories and fill the blocks of text you want to use.
@@ -32,4 +31,12 @@ To paste the block of text in an edit field, just select the block and press Ent
 
 In the add-on dialog box you also can rename, change the contents, move to other category, delete the block of text or go back to categories dialog.
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/21.07/frequentText-21.07.nvda-addon
+
+## Auto update
+Starting in version 21.07 includes a auto update check function.
+
+Everytime NVDA starts, it will check the repository to see if there are any new version.
+
+If you do not want this procedure, go to NVDA configurations and in the add-on category uncheck the checkbox.
+
+[1]: https://github.com/ruifontes/frequentText/releases/download/21.08/frequentText-21.08.nvda-addon

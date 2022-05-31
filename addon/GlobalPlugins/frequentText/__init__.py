@@ -31,9 +31,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		self.dialog = None
-		# for the auto update process
+		# To allow waiting end of network tasks
+		core.postNvdaStartup.register(self.networkTasks)
+
+	def networkTasks(self):
+		# Calling the update process...
 		_MainWindows = Initialize()
 		_MainWindows.start()
+
+	def terminate(self):
+		core.postNvdaStartup.unregister(self.networkTasks)
 
 	def readConfig(self):
 		global Catg
@@ -106,6 +113,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def terminate (self):
 		if self.dialog is not None:
 			self.dialog.Destroy()
+
+
+# To avoid use on secure screens
+if globalVars.appArgs.secure:
+	# Override the global plugin to disable it.
+	GlobalPlugin = globalPluginHandler.GlobalPlugin
 
 
 class FrequentTextCatgsDialog(wx.Dialog):

@@ -1,9 +1,9 @@
-# Texto frequente #
+# Texto frequente
 
 
 ## Informações
-* Autores: Rui Fontes e Ângelo Abrantes, baseado no trabalho de Marcos António de Oliveira
-* Actualizado em 09/08/2021
+* Autores: Rui Fontes, Ângelo Abrantes e Abel Passos Júnior, baseados no trabalho de Marcos António de Oliveira
+* Actualizado em 31/05/2022
 * Descarregar a [versão estável][1]
 * Compatibilidade: NVDA versão 2021.1 e seguintes
 
@@ -38,4 +38,4 @@ Este extra inclui um recurso de atualização automática.
 A verificação de existência de nova versão será executada cada vez que o NVDA é carregado.
 Se não desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configurações e na categoria do extra desmarque a caixa de verificação.
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/21.08/frequentText-21.08.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2022.05/frequentText-2022.05.nvda-addon

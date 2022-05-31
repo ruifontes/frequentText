@@ -2,10 +2,10 @@
 
 
 ## Informations
-* Authors: Rui Fontes and Ângelo Abrantes, based on work of Marcos António de Oliveira
-* Updated in 09/08/2021
+* Authors: Rui Fontes, Ângelo Abrantes and Abel Passos Júnior, based on work of Marcos António de Oliveira
+* Updated in 31/05/2022
 * Download [stable version][1]
-* Compatibility: NVDA version 2019.3 and posteriors
+* Compatibility: NVDA version 2019.3 and beyond
 
 
 ## Presentation
@@ -39,4 +39,4 @@ Everytime NVDA starts, it will check the repository to see if there are any new 
 
 If you do not want this procedure, go to NVDA configurations and in the add-on category uncheck the checkbox.
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/21.08/frequentText-21.08.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2022.05/frequentText-2022.05.nvda-addon

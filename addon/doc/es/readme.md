@@ -2,8 +2,8 @@
 
 
 ## Información
-* Autores: Rui Fontes y Ângelo Abrantes, basado en el trabajo de Marcos António de Oliveira
-* Actualizado el 09/08/2021
+* Autores: Rui Fontes, Ângelo Abrantes y Abel Passos Júnior, basado en el trabajo de Marcos António de Oliveira
+* Actualizado el 31/05/2022
 * Descargar [versión estable] [1]
 * Compatibilidad: NVDA versión 2021.1 y posteriores
 
@@ -37,4 +37,4 @@ Este complemento incluye una función de actualización automática.
 La comprobación de una nueva versión se ejecutará cada vez que se cargue NVDA.
 Si no quieres esto, ve a NVDA, Preferencias, Opciones y en la categoría de complementos desmarca la casilla.
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/21.08/frequentText-21.08.nvda-addon 
+[1]: https://github.com/ruifontes/frequentText/releases/download/2022.05/frequentText-2022.05.nvda-addon

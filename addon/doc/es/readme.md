@@ -3,7 +3,7 @@
 
 ## Información
 * Autores: Rui Fontes, Ângelo Abrantes y Abel Passos Júnior, basado en el trabajo de Marcos António de Oliveira
-* Actualizado el 31/05/2022
+* Actualizado el 30/05/2023
 * Descargar [versión estable] [1]
 * Compatibilidad: NVDA versión 2021.1 y posteriores
 
@@ -31,10 +31,4 @@ Para pegar el bloque de texto en un campo de edición, simplemente seleccione el
 En las opciones del complemento también puede cambiar el nombre, cambiar el contenido, pasar a otra categoría, eliminar el bloque de texto o volver al diálogo de categorías.
 
 
-## Actualización automática
-
-Este complemento incluye una función de actualización automática.
-La comprobación de una nueva versión se ejecutará cada vez que se cargue NVDA.
-Si no quieres esto, ve a NVDA, Preferencias, Opciones y en la categoría de complementos desmarca la casilla.
-
-[1]: https://github.com/ruifontes/frequentText/releases/download/2022.05/frequentText-2022.05.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2023.05.30/frequentText-2023.05.30.nvda-addon

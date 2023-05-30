@@ -1,89 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'frequentText' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: FrequentText\n"
+"Project-Id-Version: 'frequentText' '21.08'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-05-29 02:00+0100\n"
-"PO-Revision-Date: 2023-05-29 02:07+0100\n"
-"Last-Translator: Rui Fontes <rui.fontes@tiflotecnia.com>\n"
+"PO-Revision-Date: 2023-05-29 02:03+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: sr\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: Poedit 3.3.1\n"
-"X-Poedit-Basepath: ../../../GlobalPlugins\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #. Translators: Message to be announced during Keyboard Help
 #: addon\globalPlugins\frequentText\__init__.py:65
 msgid ""
 "Opens a dialog box to registe, manage and paste frequent blocks of text."
-msgstr ""
-"Otvara dijalog za upisivanje, upravljanje i lepljenje čestih blokova teksta"
+msgstr "فتح نافذة إضافة وإدارة ولصق الجمل النصية المتكررة."
 
 #. Translators: Name of the section in "Input gestures" dialog.
 #: addon\globalPlugins\frequentText\__init__.py:67
 #: addon\globalPlugins\frequentText\__init__.py:78
 msgid "Text editing"
-msgstr "Uređivanje teksta"
+msgstr "تحرير النص"
 
 #. Ttranslators: Message to be announced during Keyboard Help
 #: addon\globalPlugins\frequentText\__init__.py:76
 msgid "Opens a dialog box with the text blocks of first or default category"
-msgstr "Otvara dijalog sa blokovima teksta prve ili podrazumevane kategorije"
+msgstr "فتح نافذة نصوص التصنيف الأول أو التصنيف الافتراضي"
 
 #: addon\globalPlugins\frequentText\__init__.py:101
 #: addon\globalPlugins\frequentText\__init__.py:288
 msgid "Frequent text"
-msgstr "Čest tekst"
+msgstr "النصوص المتكررة"
 
 #. Create a label and a list view for categories list. Label is above the list view.
 #. Translators: Label the list view that contains the categories
 #: addon\globalPlugins\frequentText\__init__.py:111
 msgid "Categories list"
-msgstr "Lista kategorija"
+msgstr "قائمة التصنيفات"
 
 #. Translators: Button Label to show the entries of a category
 #: addon\globalPlugins\frequentText\__init__.py:124
 msgid "&Show entries"
-msgstr "&Prikaži stavke"
+msgstr "إ&ظهار المدخلات"
 
 #. Translators: Button Label to add a new category
 #: addon\globalPlugins\frequentText\__init__.py:130
 #: addon\globalPlugins\frequentText\__init__.py:314
 msgid "&Add"
-msgstr "&Dodaj"
+msgstr "&إضافة"
 
 #. Translators: Button Label that renames the name of the selected block.
 #: addon\globalPlugins\frequentText\__init__.py:136
 #: addon\globalPlugins\frequentText\__init__.py:326
 msgid "Re&name"
-msgstr "&Preimenuj"
+msgstr "إعادة &تسمية"
 
 #. Translators: Button Label to set the selected category as default
 #: addon\globalPlugins\frequentText\__init__.py:140
 msgid "Set &category as default"
-msgstr "Podesi &kategoriju kao podrazumevanu"
+msgstr "تعيين التصنيف كا&فتراضي"
 
 #. Translators: Button Label that removes the selected category.
 #. Translators: Button Label that removes the selected block.
 #: addon\globalPlugins\frequentText\__init__.py:144
 #: addon\globalPlugins\frequentText\__init__.py:338
 msgid "&Remove"
-msgstr "&Ukloni"
+msgstr "إ&زالة"
 
 #. Translators: Message dialog box to add a name to a new category
 #: addon\globalPlugins\frequentText\__init__.py:186
 msgid "Enter a name for the category"
-msgstr "Upiši ime za kategoriju"
+msgstr "أدخل اسم التصنيف"
 
 #. Translators: Announcement that the category name already exists in the list.
 #: addon\globalPlugins\frequentText\__init__.py:190
 #: addon\globalPlugins\frequentText\__init__.py:235
 msgid "There is already a category with this name!"
-msgstr "Već postoji kategorija sa ovim imenom!"
+msgstr "يوجد تصنيف بهذا الإسم"
 
 #. Translators: Message dialog to rename the category
 #. Translators: Message dialog to rename the block of text.
@@ -91,7 +93,7 @@ msgstr "Već postoji kategorija sa ovim imenom!"
 #: addon\globalPlugins\frequentText\__init__.py:476
 #, python-format
 msgid "Enter a new name for %s"
-msgstr "Upiši novo ime za %s"
+msgstr "أدخل الإسم الجديد لـ %s"
 
 #. Translators: Message asking if user wants to remove the selected category
 #. Translators: Message dialog box to remove the selected block.
@@ -99,7 +101,7 @@ msgstr "Upiši novo ime za %s"
 #: addon\globalPlugins\frequentText\__init__.py:584
 #, python-format
 msgid "Are you sure you want to remove %s?"
-msgstr "Da li si siguran da želiš da obrišeš %s?"
+msgstr "هل تريد إزالة %s?"
 
 #. Create a label and a list view for categories list.
 #. Label is above the list view.
@@ -107,43 +109,43 @@ msgstr "Da li si siguran da želiš da obrišeš %s?"
 #: addon\globalPlugins\frequentText\__init__.py:301
 #, python-format
 msgid "List of text blocks of %s category"
-msgstr "Lista blokova teksta kategorije %s"
+msgstr "قائمة الجمل النصية لتصنيف %s"
 
 #. Translators: Button Label that paste the block to the edit box.
 #: addon\globalPlugins\frequentText\__init__.py:320
 msgid "&Paste"
-msgstr "&Nalepi"
+msgstr "&لسق"
 
 #. Translators: Button Label that change the blocks of text.
 #: addon\globalPlugins\frequentText\__init__.py:330
 msgid "&Change blocks"
-msgstr "&Promeni blokove"
+msgstr "&تغيير الجملة"
 
 #. Translators: Label  for button to move the selected block to other category.
 #: addon\globalPlugins\frequentText\__init__.py:334
 msgid "&Move"
-msgstr "&Premesti"
+msgstr "&نقل"
 
 #. Translators: Label  for button to go back to categories list.
 #: addon\globalPlugins\frequentText\__init__.py:342
 msgid "&Back to categories"
-msgstr "&Nazad na kategorije"
+msgstr "العودة إلى الت&صنيفات"
 
 #. Translators: Message dialog box to add a name to a new block.
 #: addon\globalPlugins\frequentText\__init__.py:378
 msgid "Enter a name for the block"
-msgstr "Upiši ime za blok"
+msgstr "أدخل إسم الجملة النصية"
 
 #. Translators: Announcement that the block name already exists in the list.
 #: addon\globalPlugins\frequentText\__init__.py:382
 #: addon\globalPlugins\frequentText\__init__.py:492
 msgid "There is already a block with this name!"
-msgstr "Već postoji blok sa ovim imenom!"
+msgstr "توجد جملة نصية بهذا الإسم"
 
 #. Translators: Message dialog box to add a new block of text.
 #: addon\globalPlugins\frequentText\__init__.py:392
 msgid "Enter the block of text"
-msgstr "Upiši blok teksta"
+msgstr "أكتب نص الجملة النصية"
 
 #. Translators: Message dialog box to change a block of text.
 #: addon\globalPlugins\frequentText\__init__.py:509
@@ -151,8 +153,8 @@ msgid ""
 "Change the block of text as you want and press Tab to Ok button and Enter to "
 "confirm"
 msgstr ""
-"Promenite blok kako želite a zatim pritisnite Tab i aktivirajte dugme u redu "
-"da biste potvrdili"
+"قم بتغيير محتوى الجملة النصية إلى ما تريد, اضغط على tab إلى زر OK, ثم اضغط "
+"Enter"
 
 #. Translators: Message dialog box to move the selected block to other category.
 #: addon\globalPlugins\frequentText\__init__.py:543
@@ -161,20 +163,20 @@ msgid ""
 "If you really want to move %s from %s category, enter the name of the new, "
 "already existing, category"
 msgstr ""
-"Ako zaista želite da prebacite %s iz %s kategorije, upišite ime nove, već "
-"postojeće kategorije"
+"إذا كنت تريد نقل الجملة %s إلى التصنيف %s أدخل إسم التصنيف الذي تريد نقل "
+"الجملة إليه"
 
 #. Translators: Announcement that the category does not exists.
 #: addon\globalPlugins\frequentText\__init__.py:567
 msgid "There is no such category!"
-msgstr "Nema ove kategorije!"
+msgstr "هذا التصنيف غير موجود!"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 #: buildVars.py:23
 msgid "Regists blocks of text frequently used"
-msgstr "Čuva često upisane blokove teksta"
+msgstr "تساعدك هذه الإضافة في الاحتفاظ بالجمل النصية التي تستخدمها بكثرة"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -183,8 +185,8 @@ msgid ""
 "Stores and make possible the entry of frequently used blocks of text. "
 "Command: Windows+F12."
 msgstr ""
-"Čuva i omogućava vam da ponovo upisujete česte blokove teksta. Komanda: "
-"Windows plus f12"
+"حفظ وتخزين الجمل النصية التي تستخدمها بكثرة. لفتح نافذة الإضافة, اضغط "
+"windows+f12."
 
 #. Author(s)
 #: buildVars.py:30
@@ -192,118 +194,27 @@ msgid ""
 "Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail."
 "com> and Abel Passos Júnior"
 msgstr ""
-"Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail."
-"com> и Abel Passos Júnior"
 
 #~ msgid "&Close"
-#~ msgstr "&Zatvori"
+#~ msgstr "إ&غلاق"
 
 #~ msgid "Name"
-#~ msgstr "Ime"
-
-#, python-format
-#~ msgid ""
-#~ "Please wait\n"
-#~ "Downloading %s"
-#~ msgstr ""
-#~ "Molimo sačekajte \n"
-#~ "Preuzima se %s"
-
-#, python-format
-#~ msgid ""
-#~ "Please wait...\n"
-#~ "Downloading  %s"
-#~ msgstr ""
-#~ "Molimo sačekajte...\n"
-#~ "Preuzima se %s"
+#~ msgstr "الإسم"
 
 #~ msgid ""
-#~ "Update finished.\n"
-#~ "You must restart NVDA for these changes to take effect.\n"
-#~ "Press the Confirm button to restart or the Close to terminate without "
-#~ "restarting"
+#~ "It is available a new version of this add-on.\n"
+#~ " Do you want to update?"
 #~ msgstr ""
-#~ "Ažuriranje završeno.\n"
-#~ "Morate ponovo pokrenuti NVDA kako bi ove promene stupile na snagu.\n"
-#~ "Pritisnite dugme potvrdi da ponovo pokrenete ili zatvori da završite bez "
-#~ "ponovnog pokretanja"
+#~ "يوجد إصدار جديد من هذه الإضافة.\n"
+#~ " هل تريد التحديث؟"
 
 #~ msgid ""
-#~ "Error.\n"
-#~ "Check the Internet connection and try again.\n"
-#~ "You may close this window"
+#~ "This new version of this add-on is not compatible with your version of "
+#~ "NVDA.\n"
+#~ " The update process will be terminated."
 #~ msgstr ""
-#~ "Greška.\n"
-#~ "Proverite vezu sa Internetom a zatim pokušajte ponovo.\n"
-#~ "Možete da zatvorite ovaj prozor"
+#~ "هذا الإصدار من الإضافة غير متوافق مع الإصدار الذي تستخدمه من NVDA.\n"
+#~ " سيتم إنهاء عملية التحديث."
 
-#~ msgid "&Download and install"
-#~ msgstr "&Preuzmi i instaliraj"
-
-#~ msgid "Updating Frequent text"
-#~ msgstr "Ažuriranje dodatka čest tekst"
-
-#~ msgid "&Confirm"
-#~ msgstr "&Potvrdi"
-
-#, fuzzy
-#~| msgid "Text blocks list"
-#~ msgid "Blocks list"
-#~ msgstr "Lista blokova teksta"
-
-#~ msgid ""
-#~ "You do not have added folders and is not in the windows explorer window "
-#~ "to make a record"
-#~ msgstr ""
-#~ "No tienes ninguna carpeta registrada y no estás en la ventana del "
-#~ "Explorador de Windows para efectuar un registro"
-
-#~ msgid "Favorite folders"
-#~ msgstr "Carpetas favoritas"
-
-#~ msgid "&Show paths in the list"
-#~ msgstr "&Ver las direcciones en la lista"
-
-#~ msgid "&Open folder"
-#~ msgstr "Abrir carpe&ta"
-
-#~ msgid "Write in the e&dit box"
-#~ msgstr "Escriba en el cuadro de e&dición"
-
-#~ msgid "Ab&out"
-#~ msgstr "Ace&rca de"
-
-#~ msgid "File not found: %s."
-#~ msgstr "Archivo no encontrado: %s."
-
-#~ msgid "Enter a new nickname for %s"
-#~ msgstr "Introducir un nuevo nombre de referencia para %s."
-
-#~ msgid "Nickname"
-#~ msgstr "Referencia"
-
-#~ msgid "Address"
-#~ msgstr "Dirección"
-
-#~ msgid "Enter a nickname"
-#~ msgstr "Entre com um nome de referência para a pasta"
-
-#~ msgid "&Past in editable text"
-#~ msgstr "&Colar em caixa de texto"
-
-#~ msgid "There is already a folder with this reference!"
-#~ msgstr "Já existe uma pasta com este nome!"
-
-#~ msgid "Add to group call"
-#~ msgstr "Adicionar à chamada em grupo"
-
-#~ msgid "Added to the conference"
-#~ msgstr "Adicionada a conferência"
-
-#~ msgid "Could not be added to the conference"
-#~ msgstr ""
-#~ "Não foi possível adicionar a chamada a conferência.Para utilizar esse "
-#~ "recurso você precisa ser o administrador da conferência."
-
-#~ msgid "Notify window not found"
-#~ msgstr "Janela de notificação de chamada não encontrada"
+#~ msgid "Check for updates at startup"
+#~ msgstr "البحث عن التحديثات عند تشغيل NVDA"

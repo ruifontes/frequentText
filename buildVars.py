@@ -25,21 +25,27 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Stores and make possible the entry of frequently used blocks of text. Command: Windows+F12."""),
 	# version
-	"addon_version": "2022.05",
+	"addon_version": "2023.05.30",
 	# Author(s)
 	"addon_author": _("Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos Júnior"),
 	# URL for the add-on documentation support
 	"addon_url": "https://github.com/ruifontes/frequentText",
+	# URL for the add-on repository where the source code can be found
+	"addon_sourceURL": "https://github.com/ruifontes/frequentText",
 	# Documentation file name
 	"addon_docFileName": "readme.html",
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion" : "2021.1",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion" : "2022.1",
+	"addon_lastTestedNVDAVersion" : "2023.1",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!
 	"addon_updateChannel": None,
+	# Add-on license such as GPL 2
+	"addon_license": "GPL 2",
+	# URL for the license document the ad-on is licensed under
+	"addon_licenseURL": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
 }
 
 # Define the python files that are the sources of your add-on.

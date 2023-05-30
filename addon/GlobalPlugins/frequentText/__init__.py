@@ -1,119 +1,53 @@
 #-*- coding: utf-8 -*-
 # frequentText add-on for NVDA.
-# written by Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com>
 # Regists, manage and allow to paste  frequently used blocks of text
 # Shortcut: WINDOWS+F12
+# written by Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
+# Copyright (C) 2020-2023 Rui Fontes <rui.fontes@tiflotecnia.com>
+# This file is covered by the GNU General Public License.
+# See the file COPYING for more details.
 
+
+# Import the necessary modules
+import globalPluginHandler
+import globalVars
 import os
-import gui
-import wx
+import core
 import api
+import wx
+import gui
 from keyboardHandler import KeyboardInputGesture
 from configobj import ConfigObj
 import time
 import watchdog
-import globalPluginHandler
 from scriptHandler import script
 import addonHandler
-# For update process
-from . update import *
-# For translation process
+
+# To start the translation process
 addonHandler.initTranslation()
 
 # Global vars
 _ffIniFile = os.path.join(os.path.dirname(__file__), "frequentText.ini")
-Catg = ""
-dictBlocks = {}
-defCatg = ""
+config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
+defCatg = 0
+category = 0
 
+def listCategories():
+	listCatgs = config.keys()
+	return listCatgs
 
-class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-	def __init__(self):
-		super(globalPluginHandler.GlobalPlugin, self).__init__()
-		self.dialog = None
-		# To allow waiting end of network tasks
-		core.postNvdaStartup.register(self.networkTasks)
-
-	def networkTasks(self):
-		# Calling the update process...
-		_MainWindows = Initialize()
-		_MainWindows.start()
-
-	def terminate(self):
-		core.postNvdaStartup.unregister(self.networkTasks)
-
-	def readConfig(self):
-		global Catg
-		if not os.path.isfile(_ffIniFile):
-			return None
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		blocks = config[Catg]
-		total = len(blocks.keys())
-		if not total:
-			return None
-		if not len(blocks.keys()):
-			blocks = None
-		return blocks
-
-	@script(
-	# For translators: Message to be announced during Keyboard Help
-	description = _("Opens a dialog box to registe, manage and paste frequent blocks of text."),
-	# For translators: Name of the section in "Input gestures" dialog.
-	category = _("Text editing"),
-	gesture = "kb:WINDOWS+f12",
-	allowInSleepMode = True)
-	def script_startFrequentText(self, gesture):
-		self.showFrequentTextCatgsDialog(self)
-
-	def showFrequentTextCatgsDialog (self, listCatgs):
-		# Displays the categories list dialog box.
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		listCatgs = config.keys()
-		# Translators: Title of categories list dialog box.
-		self.dialog = FrequentTextCatgsDialog(gui.mainFrame, _("Frequent text"), listCatgs)
-		self.dialog.updateCatgs(listCatgs, 0)
-
-		if not self.dialog.IsShown():
-			gui.mainFrame.prePopup()
-			self.dialog.Show()
-			self.dialog.CentreOnScreen()
-			gui.mainFrame.postPopup()
-
-	def showFrequentTextDialog(self, dictBlocks):
-		# Displays the blocks list dialog box.
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		dictBlocks = config[Catg]
-		# Translators: Title of Blocks list dialog boxes.
-		self.dialog = FrequentTextDialog(gui.mainFrame, _("Frequent text"), dictBlocks)
-		self.dialog.updateBlocks(dictBlocks, 0)
-
-		if not self.dialog.IsShown():
-			gui.mainFrame.prePopup()
-			self.dialog.Show()
-			self.dialog.CentreOnScreen()
-			gui.mainFrame.postPopup()
-
-	@script(
-	# For translators: Message to be announced during Keyboard Help
-	description = _("Opens a dialog box with the text blocks of first or default category"),
-	# For translators: Name of the section in "Input gestures" dialog.
-	category = _("Text editing"),
-	gesture = "kb:Control+WINDOWS+f12",
-	allowInSleepMode = True)
-	def script_startFrequentTextDefault(self, gesture):
-		global Catg, defCatg
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		listCatgs = config.keys()
-		if defCatg == "":
-			Catg = listCatgs[0]
-		else:
-			Catg = defCatg
-		self.showFrequentTextDialog(self)
-
-	def terminate (self):
-		if self.dialog is not None:
-			self.dialog.Destroy()
-
+def listTextBlocks(catg):
+	listCatgs = listCategories()
+	listBlocks = []
+	Catg = catg
+	catg = listCatgs[Catg]
+	dictBlocks = config[catg]
+	keys = dictBlocks.keys()
+	keys.sort()
+	for item in keys:
+		k = item
+		listBlocks.append(k)
+	return listBlocks, dictBlocks
 
 # To avoid use on secure screens
 if globalVars.appArgs.secure:
@@ -121,317 +55,337 @@ if globalVars.appArgs.secure:
 	GlobalPlugin = globalPluginHandler.GlobalPlugin
 
 
+class GlobalPlugin(globalPluginHandler.GlobalPlugin):
+	def __init__(self):
+		super(globalPluginHandler.GlobalPlugin, self).__init__()
+		self.dialog = None
+
+	@script(
+		# Translators: Message to be announced during Keyboard Help
+		description = _("Opens a dialog box to registe, manage and paste frequent blocks of text."),
+		# Translators: Name of the section in "Input gestures" dialog.
+		category = _("Text editing"),
+		gesture = "kb:WINDOWS+f12",
+		allowInSleepMode = True)
+	def script_startFrequentText(self, gesture):
+		# Invoke the corresponding dialog
+		gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
+
+	@script(
+		# Ttranslators: Message to be announced during Keyboard Help
+		description = _("Opens a dialog box with the text blocks of first or default category"),
+		# Translators: Name of the section in "Input gestures" dialog.
+		category = _("Text editing"),
+		gesture = "kb:Control+WINDOWS+f12",
+		allowInSleepMode = True)
+	def script_startFrequentTextDefault(self, gesture):
+		# Invoke the corresponding dialog
+		global defCatg, category
+		print(str(category) + " " + str(defCatg))
+		if defCatg == 0:
+			category = 0
+		else:
+			category = defCatg
+		print(str(category) + " " + str(defCatg))
+		gui.mainFrame._popupSettingsDialog(FrequentTextDialog)
+
+	def terminate (self):
+		if self.dialog is not None:
+			self.dialog.Destroy()
+
+
 class FrequentTextCatgsDialog(wx.Dialog):
+	def __init__(self, *args, **kwds):
+		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
+		wx.Dialog.__init__(self, *args, **kwds)
+		self.title = _("Frequent text")
+		if not os.path.isfile(_ffIniFile):
+			with open(_ffIniFile, "w") as file:
+				pass
+		self.listCatgs = listCategories()
 
-	def __init__(self, parent, title, listCatgs):
-		self.title = title
-		self.listCatgs = listCatgs
-		self.dialogActive = False
-		super(FrequentTextCatgsDialog, self).__init__(parent, title=title)
-		# Create interface
-		mainSizer = wx.BoxSizer(wx.VERTICAL)
-		tasksSizer = wx.BoxSizer(wx.VERTICAL)
-		tasksSizer1 = wx.BoxSizer(wx.VERTICAL)
-		# Create a label and a list view for categories list.
-		# Label is above the list view.
+		sizer_1 = wx.BoxSizer(wx.VERTICAL)
+
+		# Create a label and a list view for categories list. Label is above the list view.
 		# Translators: Label the list view that contains the categories
-		tasksLabel = wx.StaticText(self, -1, label = _("Categories list"))
-		tasksSizer.Add(tasksLabel)
+		listLabel = wx.StaticText(self, wx.ID_ANY, _("Categories list"))
+		sizer_1.Add(listLabel, 0, 0, 0)
 
-		# create a list view.
-		self.listBoxCatgs = wx.ListCtrl(self, size=(800, 250), style = wx.LC_REPORT | wx.BORDER_SUNKEN | wx.LC_SORT_ASCENDING)
-		tasksSizer.Add(self.listBoxCatgs, proportion=8)
+		self.CatgsList = wx.ListBox(self, wx.ID_ANY, choices=self.listCatgs, style=wx.LB_SINGLE | wx.LB_SORT)
+		self.CatgsList.SetFocus()
+		if len(self.listCatgs) != 0:
+			self.CatgsList.SetSelection(0)
+		sizer_1.Add(self.CatgsList, 0, 0, 0)
 
-		# Create buttons.
-		# Buttons are in a horizontal row
-		buttonsSizer = wx.BoxSizer(wx.HORIZONTAL)
+		sizer_2 = wx.StdDialogButtonSizer()
+		sizer_1.Add(sizer_2, 0, wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 4)
 
-		showButtonID = wx.Window.NewControlId()
-		# Translators: Button Label to show the entries in the selected category
-		self.showButton = wx.Button(self, showButtonID, _("&Show entries"))
-		buttonsSizer.Add (self.showButton)
+		# Translators: Button Label to show the entries of a category
+		self.showButton = wx.Button(self, wx.ID_ANY, _("&Show entries"))
+		if len(self.listCatgs) != 0:
+			self.showButton.SetDefault()
+		sizer_2.Add(self.showButton, 0, 0, 0)
 
-		addButtonID = wx.Window.NewControlId()
 		# Translators: Button Label to add a new category
-		self.addButton = wx.Button(self, addButtonID, _("&Add"))
-		buttonsSizer.Add (self.addButton)
+		self.addButton = wx.Button(self, wx.ID_ANY, _("&Add"))
+		if len(self.listCatgs) == 0:
+			self.addButton.SetDefault()
+		sizer_2.Add(self.addButton, 0, 0, 0)
 
-		renameButtonID = wx.Window.NewControlId()
 		# Translators: Button Label that renames the name of the selected block.
-		self.renameButton = wx.Button(self, renameButtonID, _("Re&name"))
-		buttonsSizer.Add (self.renameButton)
+		self.renameButton = wx.Button(self, wx.ID_ANY, _("Re&name"))
+		sizer_2.Add(self.renameButton, 0, 0, 0)
 
-		setAsDefaultButtonID = wx.Window.NewControlId()
 		# Translators: Button Label to set the selected category as default
-		self.setAsDefaultButton = wx.Button(self, setAsDefaultButtonID, _("Set &category as default"))
-		buttonsSizer.Add (self.setAsDefaultButton)
+		self.setAsDefaultButton = wx.Button(self, wx.ID_ANY, _("Set &category as default"))
+		sizer_2.Add(self.setAsDefaultButton, 0, 0, 0)
 
-		removeButtonID = wx.Window.NewControlId()
-		# Translators: Button Label that removes the selected block.
-		self.removeButton = wx.Button (self, removeButtonID, _("&Remove"))
-		buttonsSizer.Add (self.removeButton)
+		# Translators: Button Label that removes the selected category.
+		self.removeButton = wx.Button(self, wx.ID_ANY, _("&Remove"))
+		sizer_2.Add(self.removeButton, 0, 0, 0)
 
-		# Translators: Button Label that closes the add-on.
-		cancelButton = wx.Button(self, wx.ID_CANCEL, _("&Close"))
-		buttonsSizer.Add(cancelButton)
+		self.button_CLOSE = wx.Button(self, wx.ID_CLOSE, "")
+		sizer_2.AddButton(self.button_CLOSE)
 
 		if len(self.listCatgs) == 0:
-			buttonsSizer.Hide(self.showButton)
-			buttonsSizer.Hide(self.renameButton)
-			buttonsSizer.Hide(self.setAsDefaultButton)
-			buttonsSizer.Hide(self.removeButton)
+			self.showButton.Hide()
+			self.renameButton.Hide()
+			self.setAsDefaultButton.Hide()
+			self.removeButton.Hide()
 
-		tasksSizer.Add(buttonsSizer)
-		mainSizer.Add(tasksSizer)
+		sizer_2.Realize()
 
-		# Bind the buttons.
-		self.Bind(wx.EVT_BUTTON, self.onShow, id = showButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onAdd, id = addButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onRename, id = renameButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onSetAsDefault, id = setAsDefaultButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onRemove, id = removeButtonID)
-		self.listBoxCatgs.Bind(wx.EVT_KEY_DOWN, self.onKeyPress)
-		mainSizer.Fit(self)
-		self.SetSizer(mainSizer)
+		self.SetSizer(sizer_1)
+		sizer_1.Fit(self)
+
+		self.SetEscapeId(self.button_CLOSE.GetId())
+
+		self.Layout()
+		self.Centre()
+
+		self.Bind(wx.EVT_BUTTON, self.onShow, self.showButton)
+		self.Bind(wx.EVT_BUTTON, self.onAdd, self.addButton)
+		self.Bind(wx.EVT_BUTTON, self.onRename, self.renameButton)
+		self.Bind(wx.EVT_BUTTON, self.onSetAsDefault, self.setAsDefaultButton)
+		self.Bind(wx.EVT_BUTTON, self.onRemove, self.removeButton)
+		self.CatgsList.Bind(wx.EVT_KEY_DOWN, self.onKeyPress)
+
+	def onShow(self, evt):
+		index = self.CatgsList.GetSelection()
+		catgIDX = self.listCatgs.index(self.CatgsList.GetString(index))
+		self.Close()
+		global category
+		category = catgIDX
+		gui.mainFrame._popupSettingsDialog(FrequentTextDialog)
+		#return
 
 	def onAdd (self, evt):
 		# Add a new category
 		evt.Skip()
 		# Translators: Message dialog box to add a name to a new category
-		dlg = wx.TextEntryDialog(gui.mainFrame, _("Enter a name for the category"), self.title)
-		dlg.SetValue("")
-		if dlg.ShowModal() == wx.ID_OK:
-			nameCatg = dlg.GetValue()
-			nameCatg = nameCatg.upper()
-
-			if nameCatg != "":
-				if self.listBoxCatgs.FindItem (0, nameCatg) != -1:
-					# Translators: Announcement that the category name already exists in the list.
-					gui.messageBox (_("There is already a category with this name!"), self.title)
-					self.onAdd(evt)
-					return
-				else:
-					#Saving the category
-					config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-					config[nameCatg] = {}
-					config.write()
-					# Puts the focus on the inserted category
-					listCatgs = config.keys()
-					self.updateCatgs(listCatgs, 0)
-					idx = self.listBoxCatgs.FindItem(0, nameCatg)
-					self.listBoxCatgs.Focus(idx)
-					self.listBoxCatgs.Select(idx)
-					self.listBoxCatgs.SetFocus()
-					# Redraw the dialog box to adapt the buttons
-					if len(listCatgs) == 1:
-						self.Close()
-						GlobalPlugin.showFrequentTextCatgsDialog(self, listCatgs)
+		nameCatg = wx.GetTextFromUser(_("Enter a name for the category"), self.title).strip().upper()
+		if nameCatg != "":
+			if nameCatg in self.listCatgs:
+				# Translators: Announcement that the category name already exists in the list.
+				wx.MessageBox (_("There is already a category with this name!"), self.title)
+				self.onAdd(evt)
+				return
+			else:
+				# Saving the category
+				config[nameCatg] = {}
+				config.write()
+				# Update the list of categories and the listbox
+				self.listCatgs = config.keys()
+				self.CatgsList.Set(self.listCatgs)
+				# Place the focus on the inserted category
+				idx = self.CatgsList.FindString(nameCatg)
+				self.CatgsList.SetSelection(idx)
+				self.CatgsList.SetFocus()
+				# Redraw the dialog box to adapt the buttons
+				if len(self.listCatgs) == 1:
+					self.Destroy()
+					gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 					return
 		else:
-			dlg.Destroy()
+			return
 
 	def onRename(self, evt):
 		# Renames the selected category
 		evt.Skip()
-		index = self.listBoxCatgs.GetFocusedItem()
-		nameCatg = self.listBoxCatgs.GetItemText(index)
+		index = self.CatgsList.GetSelection()
+		nameCatg = self.CatgsList.GetString(index)
 		self.dialogActive = True
 		# Translators: Message dialog to rename the category
 		newKeyCatg = wx.GetTextFromUser(_("Enter a new name for %s") %nameCatg, self.title).strip().upper()
 		if  newKeyCatg != "":
-			if self.listBoxCatgs.FindItem(0, newKeyCatg) == -1:
+			if newKeyCatg not in self.listCatgs:
 				# update the dictionaries
-				config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
 				config.rename(nameCatg, newKeyCatg)
 				config.write()
+				# Update the list of categories and the listbox
 				self.listCatgs = config.keys()
-				listCatgs = config.keys()
-				# update the list view.
-				self.updateCatgs(listCatgs, index)
-				idx = self.listBoxCatgs.FindItem(0, newKeyCatg)
-				self.listBoxCatgs.Focus(idx)
-				self.listBoxCatgs.Select(idx)
-				self.listBoxCatgs.SetFocus()
+				self.CatgsList.Set(self.listCatgs)
+				# Place the focus on the inserted category
+				idx = self.CatgsList.FindString(newKeyCatg)
+				self.CatgsList.SetSelection(idx)
+				self.CatgsList.SetFocus()
 				return
 
-			else:
-				gui.messageBox (_("There is already a category with this name!"), self.title)
+		else:
+				wx.MessageBox (_("There is already a category with this name!"), self.title)
 		self.dialogActive = False
 
 	def onSetAsDefault(self, evt):
 		# Set the selected category as default
 		evt.Skip()
-		global defCatg, listCatgs
-		index = self.listBoxCatgs.GetFocusedItem()
-		defCatg = self.listBoxCatgs.GetItemText(index)
-		self.listBoxCatgs.Focus(index)
-		self.listBoxCatgs.Select(index)
-		self.listBoxCatgs.SetFocus()
+		global defCatg
+		index = self.CatgsList.GetSelection()
+		defCatg = self.listCatgs.index(self.CatgsList.GetString(index))
+		# Return focus to the listbox
+		self.CatgsList.SetFocus()
+		return
 
 	def onRemove (self, evt):
 		# Removes the selected category
 		evt.Skip()
-		index = self.listBoxCatgs.GetFocusedItem()
-		nameCatg = self.listBoxCatgs.GetItemText(index)
+		index = self.CatgsList.GetSelection()
+		nameCatg = self.CatgsList.GetString(index)
 		self.dialogActive = True
-		# Translators: Message dialog box to remove the selected category
-		if gui.messageBox(_("Are you sure you want to remove %s?") %nameCatg, self.title, style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
-			config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
+		# Translators: Message asking if user wants to remove the selected category
+		if wx.MessageBox(_("Are you sure you want to remove %s?") %nameCatg, self.title, style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
 			config.__delitem__(nameCatg)
 			config.write()
-			self.listBoxCatgs.DeleteItem(index)
-			if self.listBoxCatgs.GetItemCount():
-				self.listBoxCatgs.Select(self.listBoxCatgs.GetFocusedItem())
+			# Update the list of categories and the listbox
+			self.listCatgs = config.keys()
+			self.CatgsList.Set(self.listCatgs)
+			# If list box have itens, select the first
+			if len(self.listCatgs) != 0:
+				self.CatgsList.SetSelection(0)
 				self.dialogActive = False
-				self.listBoxCatgs.SetFocus()
+				self.CatgsList.SetFocus()
 				return
 			else:
-				self.Close()
-				GlobalPlugin.showFrequentTextCatgsDialog(self, self.listCatgs)
+				self.Destroy()
+				gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 
 	def onKeyPress(self, evt):
 		# Sets enter key  to show the entries and delete to remove it.
 		evt.Skip()
 		keycode = evt.GetKeyCode()
-		if keycode == wx.WXK_RETURN and self.listBoxCatgs.GetItemCount():
+		print(str(keycode))
+		if keycode == wx.WXK_RETURN and self.CatgsList.GetCount():
 			self.onShow(evt)
-		elif keycode == wx.WXK_RETURN and not self.listBoxCatgs.GetItemCount():
+		elif keycode == wx.WXK_RETURN and self.CatgsList.GetCount() == 0:
 			self.onAdd(evt)
-		elif keycode == wx.WXK_DELETE and self.listBoxCatgs.GetItemCount():
+		elif keycode == wx.WXK_DELETE and self.CatgsList.GetCount():
 			self.onRemove(evt)
-
-	def onShow(self, evt):
-		global Catg
-		index = self.listBoxCatgs.GetFocusedItem()
-		Catg = self.listBoxCatgs.GetItemText(index)
-		self.Close()
-		GlobalPlugin.showFrequentTextDialog(self, dictBlocks)
-		return
-
-	def updateCatgs(self, listCatgs, index):
-		config = ConfigObj(_ffIniFile, list_values = True)
-		listCatgs = config.keys()
-		self.listBoxCatgs.ClearAll()
-		# Translators: Title of the column of the list view.
-		self.listBoxCatgs.InsertColumn(0, _("Name"))
-		self.listBoxCatgs.SetColumnWidth (0,250)
-		if listCatgs == None:
-			return
-		x = 0
-		while  x <= len(listCatgs)-1:
-			listCatgs[x]
-			self.listBoxCatgs.Append([listCatgs[x]])
-			x = x+1
-		self.listBoxCatgs.Select(0)
-		self.listBoxCatgs.Focus(0)
 
 
 class FrequentTextDialog(wx.Dialog):
+	def __init__(self, *args, **kwds):
+		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
+		wx.Dialog.__init__(self, *args, **kwds)
+		self.title = _("Frequent text")
+		self.category = category
+		print(str(self.category))
+		self.listCatgs = config.keys()
+		self.catg = category
+		catg = self.listCatgs[self.catg]
+		self.listBlocks, self.dictBlocks = listTextBlocks(self.catg)
 
-	def __init__(self, parent, title, dictBlocks):
-		self.title = title
-		self.dictBlocks = dictBlocks
-		self.dialogActive = False
-		super(FrequentTextDialog, self).__init__(parent, title=title)
-		# Create interface
-		mainSizer = wx.BoxSizer(wx.VERTICAL)
-		tasksSizer = wx.BoxSizer(wx.VERTICAL)
-		tasksSizer1 = wx.BoxSizer(wx.VERTICAL)
-		# Create a label and a list view for Frequent Text list.
+		sizer_1 = wx.BoxSizer(wx.VERTICAL)
+
+		# Create a label and a list view for categories list.
 		# Label is above the list view.
-		# Translators: Label the list view that contains the Blocks.
-		tasksLabel = wx.StaticText(self, -1, label = _("List of text blocks of %s category") %Catg)
-		tasksSizer.Add(tasksLabel)
+		# Translators: Label the list view that contains the categories
+		listLabel = wx.StaticText(self, wx.ID_ANY, _("List of text blocks of %s category") %catg)
+		sizer_1.Add(listLabel, 0, 0, 0)
 
-		# create a list view.
-		self.listBox = wx.ListCtrl(self, size=(800, 250), style = wx.LC_REPORT | wx.BORDER_SUNKEN | wx.LC_SORT_ASCENDING)
-		tasksSizer.Add(self.listBox, proportion=8)
+		self.BlocksList = wx.ListBox(self, wx.ID_ANY, choices=self.listBlocks, style=wx.LB_SINGLE | wx.LB_SORT)
+		self.BlocksList.SetFocus()
+		if len(self.listBlocks) != 0:
+			self.BlocksList.SetSelection(0)
+		sizer_1.Add(self.BlocksList, 0, 0, 0)
 
-		# Create buttons.
-		# Buttons are in a horizontal row
-		buttonsSizer = wx.BoxSizer(wx.HORIZONTAL)
+		sizer_2 = wx.StdDialogButtonSizer()
+		sizer_1.Add(sizer_2, 0, wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 4)
 
-		addButtonID = wx.Window.NewControlId()
-		# Translators: Button Label to add a new block.
-		self.addButton = wx.Button(self, addButtonID, _("&Add"))
-		buttonsSizer.Add (self.addButton)
+		# Translators: Button Label to add a new category
+		self.addButton = wx.Button(self, wx.ID_ANY, _("&Add"))
+		if len(self.listBlocks) == 0:
+			self.addButton.SetDefault()
+		sizer_2.Add(self.addButton, 0, 0, 0)
 
-		pasteButtonID = wx.Window.NewControlId()
 		# Translators: Button Label that paste the block to the edit box.
-		self.pasteButton = wx.Button (self, pasteButtonID, _("&Paste"))
-		buttonsSizer.Add(self.pasteButton)
+		self.pasteButton = wx.Button(self, wx.ID_ANY, _("&Paste"))
+		if len(self.listBlocks) != 0:
+			self.pasteButton.SetDefault()
+		sizer_2.Add(self.pasteButton, 0, 0, 0)
 
-		renameButtonID = wx.Window.NewControlId()
 		# Translators: Button Label that renames the name of the selected block.
-		self.renameButton = wx.Button(self, renameButtonID, _("Re&name"))
-		buttonsSizer.Add (self.renameButton)
+		self.renameButton = wx.Button(self, wx.ID_ANY, _("Re&name"))
+		sizer_2.Add(self.renameButton, 0, 0, 0)
 
-		changeButtonID = wx.Window.NewControlId()
 		# Translators: Button Label that change the blocks of text.
-		self.changeButton = wx.Button(self, changeButtonID, _("&Change blocks"))
-		buttonsSizer.Add (self.changeButton)
+		self.changeButton = wx.Button(self, wx.ID_ANY, _("&Change blocks"))
+		sizer_2.Add(self.changeButton, 0, 0, 0)
 
-		moveButtonID = wx.Window.NewControlId()
-		# Translators: Label  for btton to move the selected block to other category.
-		self.moveButton = wx.Button (self, moveButtonID, _("&Move"))
-		buttonsSizer.Add (self.moveButton)
+		# Translators: Label  for button to move the selected block to other category.
+		self.moveButton = wx.Button(self, wx.ID_ANY, _("&Move"))
+		sizer_2.Add(self.moveButton, 0, 0, 0)
 
-		removeButtonID = wx.Window.NewControlId()
 		# Translators: Button Label that removes the selected block.
-		self.removeButton = wx.Button (self, removeButtonID, _("&Remove"))
-		buttonsSizer.Add (self.removeButton)
+		self.removeButton = wx.Button(self, wx.ID_ANY, _("&Remove"))
+		sizer_2.Add(self.removeButton, 0, 0, 0)
 
-		goBackButtonID = wx.Window.NewControlId()
 		# Translators: Label  for button to go back to categories list.
-		self.goBackButton = wx.Button (self, goBackButtonID, _("&Back to categories"))
-		buttonsSizer.Add (self.goBackButton)
+		self.goBackButton = wx.Button(self, wx.ID_ANY, _("&Back to categories"))
+		sizer_2.Add(self.goBackButton, 0, 0, 0)
 
-		# Translators: Button Label that closes the add-on.
-		cancelButton = wx.Button(self, wx.ID_CANCEL, _("&Close"))
-		buttonsSizer.Add(cancelButton)
+		self.button_CLOSE = wx.Button(self, wx.ID_CLOSE, "")
+		sizer_2.AddButton(self.button_CLOSE)
 
-		if len(dictBlocks) == 0:
-			buttonsSizer.Hide(self.pasteButton)
-			buttonsSizer.Hide(self.renameButton)
-			buttonsSizer.Hide(self.changeButton)
-			buttonsSizer.Hide(self.moveButton)
-			buttonsSizer.Hide(self.removeButton)
+		if self.BlocksList.GetCount() == 0:
+			self.pasteButton.Hide()
+			self.renameButton.Hide()
+			self.changeButton.Hide()
+			self.moveButton.Hide()
+			self.removeButton.Hide()
 
-		tasksSizer.Add(buttonsSizer)
-		mainSizer.Add(tasksSizer)
+		sizer_2.Realize()
 
-		# Bind the buttons.
-		self.Bind(wx.EVT_BUTTON, self.onAdd, id = addButtonID)
-		self.Bind (wx.EVT_BUTTON, self.onPaste, id = pasteButtonID )
-		self.Bind(wx.EVT_BUTTON, self.onRename, id = renameButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onChangeBlocks, id = changeButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onMove, id = moveButtonID)
-		self.Bind(wx.EVT_BUTTON, self.onRemove, id = removeButtonID)
-		self.Bind(wx.EVT_BUTTON, self.goBack, id = goBackButtonID)
-		self.listBox.Bind(wx.EVT_KEY_DOWN, self.onKeyPress)
-		mainSizer.Fit(self)
-		self.SetSizer(mainSizer)
+		self.SetSizer(sizer_1)
+		sizer_1.Fit(self)
 
-	def onAdd (self, evt):
+		self.SetEscapeId(self.button_CLOSE.GetId())
+
+		self.Layout()
+		self.Centre()
+
+		self.Bind(wx.EVT_BUTTON, self.onAdd, self.addButton)
+		self.Bind(wx.EVT_BUTTON, self.onPaste, self.pasteButton)
+		self.Bind(wx.EVT_BUTTON, self.onRename, self.renameButton)
+		self.Bind(wx.EVT_BUTTON, self.onChangeBlocks, self.changeButton)
+		self.Bind(wx.EVT_BUTTON, self.onMove, self.moveButton)
+		self.Bind(wx.EVT_BUTTON, self.onRemove, self.removeButton)
+		self.Bind(wx.EVT_BUTTON, self.onGoBack, self.goBackButton)
+		self.BlocksList.Bind(wx.EVT_KEY_DOWN, self.onKeyPress)
+
+	def onAdd(self, evt):
 		# Add a new block of text.
 		evt.Skip()
 		# Translators: Message dialog box to add a name to a new block.
-		dlg = wx.TextEntryDialog(gui.mainFrame, _("Enter a name for the block"), self.title)
-		dlg.SetValue("")
-		if dlg.ShowModal() == wx.ID_OK:
-			name = dlg.GetValue()
-			name = name.upper()
-
-			if name != "":
-				if self.listBox.FindItem (0, name) != -1:
-					# Translators: Announcement that the block name already exists in the list.
-					gui.messageBox (_("There is already a block with this name!"), self.title)
-					self.onAdd(evt)
-					return
-				else:
-					self._addBlock(name)	
+		name = wx.GetTextFromUser(_("Enter a name for the block"), self.title).strip().upper()
+		if name != "":
+			if name in self.listBlocks:
+				# Translators: Announcement that the block name already exists in the list.
+				wx.MessageBox (_("There is already a block with this name!"), self.title)
+				self.onAdd(evt)
+				return
+			else:
+				self._addBlock(name)
 		else:
-			dlg.Destroy()
+			self.BlocksList.SetFocus()
 
 	def _addBlock(self, name):
 		# Translators: Message dialog box to add a new block of text.
@@ -449,33 +403,38 @@ class FrequentTextDialog(wx.Dialog):
 			return
 
 		# Saving the block
-		config = ConfigObj(_ffIniFile, list_values=True, encoding = "utf-8")
-		if Catg in config.sections:
-			blocks = config[Catg]
+		catg = self.listCatgs[self.catg]
+		if catg in config.sections:
+			blocks = config[catg]
 			blocks.__setitem__(name, newBlock)
 		else:
-			config[Catg] = {name:newBlock}
+			config[catg] = {name:newBlock}
 		config.write()
-		self.listBox.Append([name])
-		newIndex = self.listBox.FindItem(0,name)
+		# Update listBlocks e blocksList
+		self.listBlocks, self.dictBlocks = listTextBlocks(self.catg)
+		self.BlocksList.Set(self.listBlocks)
 		# Puts the focus on the inserted block.
-		self.listBox.Focus (newIndex)
-		self.listBox.Select(newIndex)
-		self.listBox.SetFocus()
-		# Redraw the dialog box to adapt the buttons
-		self.Close()
-		GlobalPlugin.showFrequentTextDialog(self, dictBlocks)
+		idx = self.BlocksList.FindString(name)
+		self.BlocksList.SetSelection(idx)
+		self.BlocksList.SetFocus()
+		if self.BlocksList.GetCount() == 1:
+			self.pasteButton.Show()
+			self.renameButton.Show()
+			self.changeButton.Show()
+			self.moveButton.Show()
+			self.removeButton.Show()
 		return
 
-	def onPaste (self, evt):
+	def onPaste(self, evt):
 		# Simulates typing the block of text in the edit area.
 		self.Hide()
 		evt.Skip()
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		blocks = config[Catg]
-		index=self.listBox.GetFocusedItem()
-		name = self.listBox.GetItemText(index)
-		paste = blocks[name]
+		# Get the name of selected block
+		name = self.BlocksList.GetString(self.BlocksList.GetSelection())
+		# Get blocks list and blocks dictionary of the category
+		blocks, dictBlocks = listTextBlocks(self.catg)
+		# Gets the selected block contents
+		paste = dictBlocks[name]
 		pasteStr = "\r\n".join(paste)
 		if len(paste) >= 2:
 			pasteStr += "\r\n"
@@ -494,7 +453,7 @@ class FrequentTextDialog(wx.Dialog):
 				KeyboardInputGesture.fromName("Control+v").send()
 		else:
 			api.copyToClip(pasteStr)
-			time.sleep(0.1)
+			time.sleep(0.01)
 			api.processPendingEvents(False)
 			focus = api.getFocusObject()
 			if focus.windowClassName == "ConsoleWindowClass":
@@ -504,48 +463,48 @@ class FrequentTextDialog(wx.Dialog):
 			else:
 				KeyboardInputGesture.fromName("Control+v").send()
 			core.callLater(300, lambda: api.copyToClip(clipboardBackup))
+		self.Destroy()
 
 	def onRename(self, evt):
 		# Renames the selected block.
 		evt.Skip()
-		index=self.listBox.GetFocusedItem()
-		name = self.listBox.GetItemText(index)
+		index=self.BlocksList.GetSelection()
+		name = self.BlocksList.GetString(index)
+		catg = self.listCatgs[self.catg]
 		self.dialogActive = True
 		# Translators: Message dialog to rename the block of text.
 		newKey = wx.GetTextFromUser(_("Enter a new name for %s") %name, self.title).strip().upper()
 		if newKey != "":
-			if self.listBox.FindItem(0, newKey) == -1:
-				config = ConfigObj(_ffIniFile, list_values=True, encoding = "utf-8")
-				blocks = config[Catg]
-				paste = blocks[name]
+			if newKey not in self.listBlocks:
+				# Save the new name
+				blocks = config[catg]
 				# update the dictionary.
 				blocks.rename(name, newKey)
 				config.write()
-
-				# update the list view.
-				keys = blocks.keys()
-				keys.sort()
-				newIndex = keys.index (newKey)
-				self.updateBlocks (blocks, newIndex)
-				self.listBox.SetFocus()
-
+				# Update listBlocks e blocksList
+				self.listBlocks, self.dictBlocks = listTextBlocks(self.catg)
+				self.BlocksList.Set(self.listBlocks)
+				# Puts the focus on the inserted block.
+				idx = self.BlocksList.FindString(newKey)
+				self.BlocksList.SetSelection(idx)
+				self.BlocksList.SetFocus()
 			else:
 				gui.messageBox (_("There is already a block with this name!"), self.title)
 		self.dialogActive = False
 
 	def onChangeBlocks(self, evt):
 		evt.Skip()
-		index=self.listBox.GetFocusedItem()
-		name = self.listBox.GetItemText(index)
-		config = ConfigObj(_ffIniFile, list_values=True, encoding = "utf-8")
-		blocks = config[Catg]
+		index=self.BlocksList.GetSelection()
+		name = self.BlocksList.GetString(index)
+		catg = self.listCatgs[self.catg]
+		self.dialogActive = True
+		blocks = config[catg]
 		paste = blocks[name]
 		oldBlock = ""
 		for x in range(len(paste)):
 			oldBlock += ("%s \n")%paste[x]
 			x = x+1
 		self.dialogActive = True
-
 		# Translators: Message dialog box to change a block of text.
 		dlg = wx.TextEntryDialog(gui.mainFrame, _("Change the block of text as you want and press Tab to Ok button and Enter to confirm"), self.title, style = wx.OK | wx.CANCEL | wx.TE_MULTILINE)
 		dlg.SetValue(oldBlock)
@@ -554,115 +513,105 @@ class FrequentTextDialog(wx.Dialog):
 		else:
 			dlg.Destroy()
 			return
-
 		if nBlock != "":
 			changeBlock = nBlock.split("\n")
 		else:
 			dlg.Destroy()
 			return
-
 		# update the dictionary.
 		blocks.__delitem__(name)
 		blocks.__setitem__(name, changeBlock)
 		config.write()
+		# Update listBlocks e blocksList
+		self.listBlocks, self.dictBlocks = listTextBlocks(self.catg)
+		self.BlocksList.Set(self.listBlocks)
+		# Puts the focus on the inserted block.
+		idx = self.BlocksList.FindString(name)
+		self.BlocksList.SetSelection(idx)
+		self.BlocksList.SetFocus()
 
-		# update the list view.
-		keys = blocks.keys()
-		keys.sort()
-		newIndex = keys.index (name)
-		self.updateBlocks (blocks, newIndex)
-		self.listBox.SetFocus()
-
-	def onMove (self, evt):
+	def onMove(self, evt):
 		# Moves the selected block to other category.
 		evt.Skip()
-		config = ConfigObj(_ffIniFile, list_values=True, encoding = "utf-8")
-		index=self.listBox.GetFocusedItem()
-		name = self.listBox.GetItemText(index)
-		blocks = config[Catg]
+		index=self.BlocksList.GetSelection()
+		name = self.BlocksList.GetString(index)
+		catg = self.listCatgs[self.catg]
+		blocks = config[catg]
 		textBlock = blocks[name]
 		self.dialogActive = True
 		# Translators: Message dialog box to move the selected block to other category.
-		newCatg = wx.GetTextFromUser(_("If you really want to move %s from %s category, enter the name of the new, already existing, category") %(name, Catg), self.title).strip().upper()
+		newCatg = wx.GetTextFromUser(_("If you really want to move %s from %s category, enter the name of the new, already existing, category") %(name, catg), self.title).strip().upper()
 		if newCatg != "":
 			listCatgs = config.keys()
 			if str(newCatg) in listCatgs:
 				blocks = config[newCatg]
 				blocks.__setitem__ (name, textBlock)
-				blocks = config[Catg]
+				blocks = config[catg]
 				blocks.__delitem__(name)
 				config.write()
-				self.listBox.DeleteItem(index)
-				if self.listBox.GetItemCount():
-					self.listBox.Select(self.listBox.GetFocusedItem())
-				self.dialogActive = False
-				self.listBox.SetFocus()
+				# Update listBlocks e blocksList
+				self.listBlocks, self.dictBlocks = listTextBlocks(self.catg)
+				self.BlocksList.Set(self.listBlocks)
+				# Put focus on the blocks list and in the first block.
+				if self.BlocksList.GetCount():
+					self.BlocksList.Select(0)
+				elif self.BlocksList.GetCount() == 0:
+					self.pasteButton.Hide()
+					self.renameButton.Hide()
+					self.changeButton.Hide()
+					self.moveButton.Hide()
+					self.removeButton.Hide()
+				self.BlocksList.SetFocus()
 			else:
 				# Translators: Announcement that the category does not exists.
 				gui.messageBox (_("There is no such category!"), self.title)
 				self.onMove(evt)
 		else:
 			self.onMove()
-		# Redraw the dialog box to adapt the buttons
-		self.Close()
-		GlobalPlugin.showFrequentTextDialog(self, dictBlocks)
 
-	def onRemove (self, evt):
+	def onRemove(self, evt):
 		# Removes the selected block.
 		evt.Skip()
 		self.removeItem()
 
-	def removeItem (self):
+	def removeItem(self):
 		# Removes the selected block.
-		index=self.listBox.GetFocusedItem()
-		name = self.listBox.GetItemText(index)
+		index=self.BlocksList.GetSelection()
+		name = self.BlocksList.GetString(index)
+		catg = self.listCatgs[self.catg]
 		self.dialogActive = True
 		# Translators: Message dialog box to remove the selected block.
 		if gui.messageBox(_("Are you sure you want to remove %s?") %name, self.title, style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
-			config = ConfigObj(_ffIniFile, list_values=True, encoding = "utf-8")
-			blocks = config[Catg]
+			blocks = config[catg]
 			blocks.__delitem__(name)
 			config.write()
-			self.listBox.DeleteItem(index)
-			if self.listBox.GetItemCount():
-				self.listBox.Select(self.listBox.GetFocusedItem())
+			self.BlocksList.Delete(index)
+		# Adapt the show/hide state of buttons
+		if self.BlocksList.GetCount() > 0:
+			self.BlocksList.Select(0)
+		elif self.BlocksList.GetCount() == 0:
+			self.pasteButton.Hide()
+			self.renameButton.Hide()
+			self.changeButton.Hide()
+			self.moveButton.Hide()
+			self.removeButton.Hide()
 		self.dialogActive = False
-		self.listBox.SetFocus()
-		# Redraw the dialog box to adapt the buttons
-		self.Close()
-		GlobalPlugin.showFrequentTextDialog(self, dictBlocks)
+		self.BlocksList.SetFocus()
 
-	def goBack(self, evt):
+	def onGoBack(self, evt):
 		# Returns to categories list dialog
 		evt.Skip()
-		config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
-		listCatgs = config.keys()
 		self.Close()
-		GlobalPlugin.showFrequentTextCatgsDialog(self, listCatgs)
+		gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 
 	def onKeyPress(self, evt):
 		# Sets enter key  to paste the text and delete to remove it.
 		evt.Skip()
 		keycode = evt.GetKeyCode()
-		if keycode == wx.WXK_RETURN and self.listBox.GetItemCount():
+		if keycode == wx.WXK_RETURN and self.BlocksList.GetCount():
 			self.onPaste(evt)
-		elif keycode == wx.WXK_RETURN and not self.listBox.GetItemCount():
+		elif keycode == wx.WXK_RETURN and not self.BlocksList.GetCount():
 			self.onAdd(evt)
-		elif keycode == wx.WXK_DELETE and self.listBox.GetItemCount():
+		elif keycode == wx.WXK_DELETE and self.BlocksList.GetCount():
 			self.removeItem()
-
-	def updateBlocks(self, dictBlocks, index):
-		self.listBox.ClearAll()
-		# Translators: Title of the column of the list view.
-		self.listBox.InsertColumn(0, _("Name"))
-		self.listBox.SetColumnWidth (0,250)
-		if dictBlocks == None:
-			return
-		keys = dictBlocks.keys()
-		keys.sort()
-		for item in keys:
-			k = item
-			self.listBox.Append ([k])
-		self.listBox.Focus(index)
-		self.listBox.Select(index)
 

@@ -1,0 +1,29 @@
+{
+	"addonId": "frequentText",
+	"displayName": "Regists blocks of text frequently used",
+	"URL": "",
+	"description": "Stores and make possible the entry of frequently used blocks of text. Command: Windows+F12.",
+	"sha256": "700a5e7618d223339aa1392b7b5030564f38ea6b4f4c91b5e53ee52a0c73a370",
+	"homepage": "https://github.com/ruifontes/frequentText",
+	"addonVersionName": "2023.05.30",
+	"addonVersionNumber": {
+		"major": 2023,
+		"minor": 5,
+		"patch": 30
+	},
+	"minNVDAVersion": {
+		"major": 2021,
+		"minor": 1,
+		"patch": 0
+	},
+	"lastTestedVersion": {
+		"major": 2023,
+		"minor": 1,
+		"patch": 0
+	},
+	"channel": "stable",
+	"publisher": "",
+	"sourceURL": "https://github.com/ruifontes/frequentText",
+	"license": "GPL 2",
+	"licenseURL": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+}

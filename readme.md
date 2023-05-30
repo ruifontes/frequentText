@@ -1,11 +1,11 @@
 # Frequent text #
 
 
-## Informations
+## Information
 * Authors: Rui Fontes, Ângelo Abrantes and Abel Passos Júnior, based on work of Marcos António de Oliveira
-* Updated in 31/05/2022
+* Updated in 30/05/2023
 * Download [stable version][1]
-* Compatibility: NVDA version 2019.3 and beyond
+* Compatibility: NVDA version 2021.1 and beyond
 
 
 ## Presentation
@@ -32,11 +32,4 @@ To paste the block of text in an edit field, just select the block and press Ent
 In the add-on dialog box you also can rename, change the contents, move to other category, delete the block of text or go back to categories dialog.
 
 
-## Auto update
-Starting in version 21.07 includes a auto update check function.
-
-Everytime NVDA starts, it will check the repository to see if there are any new version.
-
-If you do not want this procedure, go to NVDA configurations and in the add-on category uncheck the checkbox.
-
-[1]: https://github.com/ruifontes/frequentText/releases/download/2022.05/frequentText-2022.05.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2023.05.30/frequentText-2023.05.30.nvda-addon

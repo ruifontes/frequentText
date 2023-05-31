@@ -3,13 +3,13 @@
 	"displayName": "Regists blocks of text frequently used",
 	"URL": "",
 	"description": "Stores and make possible the entry of frequently used blocks of text. Command: Windows+F12.",
-	"sha256": "700a5e7618d223339aa1392b7b5030564f38ea6b4f4c91b5e53ee52a0c73a370",
+	"sha256": "d2a6e6feb16f11a0df06e54aebc238bdb17616ea3d5b5ee9dc531bed7587c4af",
 	"homepage": "https://github.com/ruifontes/frequentText",
-	"addonVersionName": "2023.05.30",
+	"addonVersionName": "2023.05.31",
 	"addonVersionNumber": {
 		"major": 2023,
 		"minor": 5,
-		"patch": 30
+		"patch": 31
 	},
 	"minNVDAVersion": {
 		"major": 2021,

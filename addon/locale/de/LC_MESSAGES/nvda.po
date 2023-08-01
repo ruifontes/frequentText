@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: frequentText 2023.5.31\n"
+"POT-Creation-Date: 2023-08-01 20:15+0200\n"
+"PO-Revision-Date: 2023-08-01 20:50+0200\n"
+"Last-Translator: Frank Niggemann <fniggemann@gmail.com>\n"
+"Language-Team: fniggemann@gmail.com\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-Basepath: ../../../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: addon/GlobalPlugins/frequentText/__init__.py\n"
+"X-Poedit-SearchPath-1: buildVars.py\n"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:65
+msgid ""
+"Opens a dialog box to registe, manage and paste frequent blocks of text."
+msgstr ""
+"Öffnet ein Dialogfeld zum Erstellen, Verwalten und Einfügen von "
+"Textbausteinen."
+
+#: addon/GlobalPlugins/frequentText/__init__.py:67
+#: addon/GlobalPlugins/frequentText/__init__.py:78
+msgid "Text editing"
+msgstr "Textbearbeitung"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:76
+msgid "Opens a dialog box with the text blocks of first or default category"
+msgstr ""
+"Öffnet ein Dialogfeld mit den Textbausteinen der ersten oder "
+"Standardkategorie"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:101
+#: addon/GlobalPlugins/frequentText/__init__.py:288
+msgid "Frequent text"
+msgstr "frequentText"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:111
+#, fuzzy
+msgid "Categories list"
+msgstr "Kategorienliste"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:124
+msgid "&Show entries"
+msgstr "&Einträge anzeigen"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:130
+#: addon/GlobalPlugins/frequentText/__init__.py:314
+msgid "&Add"
+msgstr "&hinzufügen"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:136
+#: addon/GlobalPlugins/frequentText/__init__.py:326
+msgid "Re&name"
+msgstr "&umbenennen"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:140
+msgid "Set &category as default"
+msgstr "Kategorie als &Standard setzen"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:144
+#: addon/GlobalPlugins/frequentText/__init__.py:338
+msgid "&Remove"
+msgstr "entfe&rnen"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:186
+msgid "Enter a name for the category"
+msgstr "Geben Sie einen Namen für die Kategorie ein"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:190
+#: addon/GlobalPlugins/frequentText/__init__.py:235
+msgid "There is already a category with this name!"
+msgstr "Es gibt bereits eine Kategorie mit diesem Namen!"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:219
+#: addon/GlobalPlugins/frequentText/__init__.py:476
+#, python-format
+msgid "Enter a new name for %s"
+msgstr "Geben Sie einen neuen Namen für %s ein"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:255
+#: addon/GlobalPlugins/frequentText/__init__.py:584
+#, python-format
+msgid "Are you sure you want to remove %s?"
+msgstr "Sind Sie sicher, dass Sie %s entfernen möchten?"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:301
+#, python-format
+msgid "List of text blocks of %s category"
+msgstr "Liste der Textbausteine in der Kategorie %s"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:320
+msgid "&Paste"
+msgstr "ein&fügen"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:330
+msgid "&Change blocks"
+msgstr "Textbaustein &bearbeiten"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:334
+msgid "&Move"
+msgstr "&verschieben"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:342
+msgid "&Back to categories"
+msgstr "&Zurück zu den Kategorien"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:378
+msgid "Enter a name for the block"
+msgstr "Geben Sie einen Namen für den Textbaustein ein"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:382
+#: addon/GlobalPlugins/frequentText/__init__.py:492
+msgid "There is already a block with this name!"
+msgstr "Es gibt bereits einen Textbaustein mit diesem Namen!"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:392
+msgid "Enter the block of text"
+msgstr "Geben Sie den Textbaustein ein"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:509
+msgid ""
+"Change the block of text as you want and press Tab to Ok button and Enter to "
+"confirm"
+msgstr ""
+"Ändern Sie den Textbaustein wie gewünscht und drücken die Tabulatortaste und "
+"die Eingabetaste zur Bestätigung."
+
+#: addon/GlobalPlugins/frequentText/__init__.py:543
+#, python-format
+msgid ""
+"If you really want to move %s from %s category, enter the name of the new, "
+"already existing, category"
+msgstr ""
+"Wenn Sie %s wirklich aus der Kategorie %s verschieben wollen, geben Sie den "
+"Namen der neuen, bereits bestehenden Kategorie ein"
+
+#: addon/GlobalPlugins/frequentText/__init__.py:567
+msgid "There is no such category!"
+msgstr "Diese Kategorie existiert nicht!"
+
+#: buildVars.py:23
+msgid "Regists blocks of text frequently used"
+msgstr "Erfasst häufig verwendete Textbausteine"
+
+#: buildVars.py:26
+msgid ""
+"Stores and make possible the entry of frequently used blocks of text. "
+"Command: Windows+F12."
+msgstr ""
+"Speichert und ermöglicht die Eingabe von häufig verwendeten Textbausteinen. "
+"Befehl: Windows+F12."
+
+#: buildVars.py:30
+msgid ""
+"Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail."
+"com> and Abel Passos Júnior"
+msgstr ""
+"Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail."
+"com> and Abel Passos Júnior"

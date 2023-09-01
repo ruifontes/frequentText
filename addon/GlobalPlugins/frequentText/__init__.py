@@ -34,6 +34,7 @@ category = 0
 
 def listCategories():
 	listCatgs = config.keys()
+	listCatgs.sort(key=str.lower)
 	return listCatgs
 
 def listTextBlocks(catg):
@@ -69,7 +70,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		allowInSleepMode = True)
 	def script_startFrequentText(self, gesture):
 		# Invoke the corresponding dialog
-		gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
+		gui.mainFrame.popupSettingsDialog(FrequentTextCatgsDialog)
 
 	@script(
 		# Ttranslators: Message to be announced during Keyboard Help
@@ -81,13 +82,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_startFrequentTextDefault(self, gesture):
 		# Invoke the corresponding dialog
 		global defCatg, category
-		print(str(category) + " " + str(defCatg))
 		if defCatg == 0:
 			category = 0
 		else:
 			category = defCatg
-		print(str(category) + " " + str(defCatg))
-		gui.mainFrame._popupSettingsDialog(FrequentTextDialog)
+		gui.mainFrame.popupSettingsDialog(FrequentTextDialog)
 
 	def terminate (self):
 		if self.dialog is not None:
@@ -176,7 +175,7 @@ class FrequentTextCatgsDialog(wx.Dialog):
 		self.Close()
 		global category
 		category = catgIDX
-		gui.mainFrame._popupSettingsDialog(FrequentTextDialog)
+		gui.mainFrame.popupSettingsDialog(FrequentTextDialog)
 		#return
 
 	def onAdd (self, evt):
@@ -272,7 +271,6 @@ class FrequentTextCatgsDialog(wx.Dialog):
 		# Sets enter key  to show the entries and delete to remove it.
 		evt.Skip()
 		keycode = evt.GetKeyCode()
-		print(str(keycode))
 		if keycode == wx.WXK_RETURN and self.CatgsList.GetCount():
 			self.onShow(evt)
 		elif keycode == wx.WXK_RETURN and self.CatgsList.GetCount() == 0:
@@ -287,8 +285,7 @@ class FrequentTextDialog(wx.Dialog):
 		wx.Dialog.__init__(self, *args, **kwds)
 		self.title = _("Frequent text")
 		self.category = category
-		print(str(self.category))
-		self.listCatgs = config.keys()
+		self.listCatgs = listCategories()
 		self.catg = category
 		catg = self.listCatgs[self.catg]
 		self.listBlocks, self.dictBlocks = listTextBlocks(self.catg)

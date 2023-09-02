@@ -70,7 +70,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		allowInSleepMode = True)
 	def script_startFrequentText(self, gesture):
 		# Invoke the corresponding dialog
-		gui.mainFrame.popupSettingsDialog(FrequentTextCatgsDialog)
+		try:
+			gui.mainFrame.popupSettingsDialog(FrequentTextCatgsDialog)
+		except AttributeError:
+			gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 
 	@script(
 		# Ttranslators: Message to be announced during Keyboard Help
@@ -86,7 +89,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			category = 0
 		else:
 			category = defCatg
-		gui.mainFrame.popupSettingsDialog(FrequentTextDialog)
+		try:
+			gui.mainFrame.popupSettingsDialog(FrequentTextDialog)
+		except AttributeError:
+			gui.mainFrame._popupSettingsDialog(FrequentTextDialog)
 
 	def terminate (self):
 		if self.dialog is not None:
@@ -203,7 +209,10 @@ class FrequentTextCatgsDialog(wx.Dialog):
 				# Redraw the dialog box to adapt the buttons
 				if len(self.listCatgs) == 1:
 					self.Destroy()
-					gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
+					try:
+						gui.mainFrame.popupSettingsDialog(FrequentTextCatgsDialog)
+					except AttributeError:
+						gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 					return
 		else:
 			return
@@ -265,7 +274,10 @@ class FrequentTextCatgsDialog(wx.Dialog):
 				return
 			else:
 				self.Destroy()
-				gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
+				try:
+					gui.mainFrame.popupSettingsDialog(FrequentTextCatgsDialog)
+				except AttributeError:
+					gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 
 	def onKeyPress(self, evt):
 		# Sets enter key  to show the entries and delete to remove it.
@@ -599,7 +611,10 @@ class FrequentTextDialog(wx.Dialog):
 		# Returns to categories list dialog
 		evt.Skip()
 		self.Close()
-		gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
+		try:
+			gui.mainFrame.popupSettingsDialog(FrequentTextCatgsDialog)
+		except AttributeError:
+			gui.mainFrame._popupSettingsDialog(FrequentTextCatgsDialog)
 
 	def onKeyPress(self, evt):
 		# Sets enter key  to paste the text and delete to remove it.

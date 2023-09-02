@@ -32,4 +32,4 @@ Um den Textblock in ein Bearbeitungsfeld einzufügen, wählen Sie einfach den Bl
 Im Add-on-Dialogfeld können Sie auch umbenennen, den Inhalt ändern, zu einer anderen Kategorie wechseln, den Textblock löschen oder zum Kategoriendialog zurückkehren.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2023.09.01/frequentText-2023.09.01.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2023.09.02/frequentText-2023.09.02.nvda-addon

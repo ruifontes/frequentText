@@ -181,8 +181,10 @@ class FrequentTextCatgsDialog(wx.Dialog):
 		self.Close()
 		global category
 		category = catgIDX
-		gui.mainFrame.popupSettingsDialog(FrequentTextDialog)
-		#return
+		try:
+			gui.mainFrame.popupSettingsDialog(FrequentTextDialog)
+		except AttributeError:
+			gui.mainFrame._popupSettingsDialog(FrequentTextDialog)
 
 	def onAdd (self, evt):
 		# Add a new category

@@ -7,7 +7,6 @@ import globalVars
 import addonHandler
 
 def onInstall():
-	configFilePath = os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "frequentText", "globalPlugins", "frequentText", "frequentText.ini"))
+	configFilePath = os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "frequentText", "GlobalPlugins", "frequentText", "frequentText.ini"))
 	if os.path.isfile(configFilePath):	
-		os.remove(os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "frequentText" + addonHandler.ADDON_PENDINGINSTALL_SUFFIX, "globalPlugins", "frequentText", "frequentText.ini")))
-		os.rename(configFilePath, os.path.abspath(os.path.join(globalVars.appArgs.configPath, "addons", "frequentText" + addonHandler.ADDON_PENDINGINSTALL_SUFFIX, "globalPlugins", "frequentText", "frequentText.ini")))
+		os.rename(configFilePath, os.path.abspath(os.path.join(globalVars.appArgs.configPath, "frequentText.ini")))

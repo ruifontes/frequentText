@@ -3,7 +3,7 @@
 
 ## bilgiler:
 * Yazarlar: Rui Fontes, Ângelo Abrantes ve Abel Passos Júnior, Marcos António de Oliveira'nın çalışmasına dayanarak.
-* 01/09/2023'de güncellendi
+* 04/01/2024'de güncellendi
 * [Kararlı sürümü indirin][1]
 * Uyumluluk: NVDA sürüm 2021.1 ve sonrası
 
@@ -32,4 +32,4 @@ Metin bloğunu bir düzenleme alanına yapıştırmak için bloğu seçin ve Ent
 Eklenti iletişim kutusunda ayrıca yeniden adlandırabilir, içeriği değiştirebilir, başka bir kategoriye geçebilir, metin bloğunu silebilir veya kategoriler iletişim kutusuna geri dönebilirsiniz.  
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2023.09.03/frequentText-2023.09.03.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2024.01.04/frequentText-2024.01.04.nvda-addon

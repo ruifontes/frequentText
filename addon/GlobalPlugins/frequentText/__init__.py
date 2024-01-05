@@ -3,7 +3,7 @@
 # Regists, manage and allow to paste  frequently used blocks of text
 # Shortcut: WINDOWS+F12
 # written by Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
-# Copyright (C) 2020-2023 Rui Fontes <rui.fontes@tiflotecnia.com>
+# Copyright (C) 2020-2024 Rui Fontes <rui.fontes@tiflotecnia.com>
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
 
@@ -27,7 +27,7 @@ import addonHandler
 addonHandler.initTranslation()
 
 # Global vars
-_ffIniFile = os.path.join(os.path.dirname(__file__), "frequentText.ini")
+_ffIniFile = os.path.abspath(os.path.join(globalVars.appArgs.configPath, "frequentText.ini"))
 config = ConfigObj(_ffIniFile, list_values = True, encoding = "utf-8")
 defCatg = 0
 category = 0

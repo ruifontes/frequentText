@@ -3,7 +3,7 @@
 
 ## Informações
 * Autores: Rui Fontes, Ângelo Abrantes e Abel Passos Júnior, baseados no trabalho de Marcos António de Oliveira
-* Actualizado em 04/01/2024
+* Actualizado em 22/03/2024
 * Descarregar a [versão estável][1]
 * Compatibilidade: NVDA versão 2021.1 e seguintes
 
@@ -32,4 +32,4 @@ Para colar o bloco de texto num campo de edição, seleccione o bloco e pression
 Na caixa de diálogo da lista de blocos também pode renomear, alterar o conteúdo, mudar de categoria ou eliminar um bloco de texto, ou voltar para a caixa de diálogo das categorias.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.01.04/frequentText-2024.01.04.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon

@@ -3,7 +3,7 @@
 
 ## Information
 * Authors: Rui Fontes, Ângelo Abrantes and Abel Passos Júnior, based on work of Marcos António de Oliveira
-* Updated in 04/01/2024
+* Updated in 22/03/2024
 * Download [stable version][1]
 * Compatibility: NVDA version 2021.1 and beyond
 
@@ -32,4 +32,4 @@ To paste the block of text in an edit field, just select the block and press Ent
 In the add-on dialog box you also can rename, change the contents, move to other category, delete the block of text or go back to categories dialog.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.01.04/frequentText-2024.01.04.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon

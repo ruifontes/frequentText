@@ -3,7 +3,7 @@
 
 ## Information
 * Autoren: Rui Fontes, Ângelo Abrantes und Abel Passos Júnior, basierend auf der Arbeit von Marcos António de Oliveira
-* Aktualisiert am 04.01.2024
+* Aktualisiert am 22.03.2024
 * [stabile Version] herunterladen[1]
 * Kompatibilität: NVDA-Version 2021.1 und höher
 
@@ -32,4 +32,4 @@ Um den Textblock in ein Bearbeitungsfeld einzufügen, wählen Sie einfach den Bl
 Im Add-on-Dialogfeld können Sie auch umbenennen, den Inhalt ändern, zu einer anderen Kategorie wechseln, den Textblock löschen oder zum Kategoriendialog zurückkehren.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.01.04/frequentText-2024.01.04.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon

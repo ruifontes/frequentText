@@ -1,0 +1,283 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FrequentText\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2021-08-09 02:06+0100\n"
+"PO-Revision-Date: 2024-01-17 08:25+0100\n"
+"Last-Translator: Rui Fontes <rui.fontes@tiflotecnia.com>\n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: ../../../GlobalPlugins\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. For translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\frequentText\__init__.py:53
+msgid ""
+"Opens a dialog box to registe, manage and paste frequent blocks of text."
+msgstr ""
+"* Otevře dialogové okno pro registraci, správu a vkládání častých bloků "
+"textu. 1 z 32"
+
+#. For translators: Name of the section in "Input gestures" dialog.
+#: addon\globalPlugins\frequentText\__init__.py:55
+#: addon\globalPlugins\frequentText\__init__.py:93
+msgid "Text editing"
+msgstr "Úprava textu"
+
+#. Translators: Title of categories list dialog box.
+#. Translators: Title of Blocks list dialog boxes.
+#: addon\globalPlugins\frequentText\__init__.py:66
+#: addon\globalPlugins\frequentText\__init__.py:80
+msgid "Frequent text"
+msgstr "Častý text"
+
+#. For translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\frequentText\__init__.py:91
+msgid "Opens a dialog box with the text blocks of first or default category"
+msgstr "Otevře dialogové okno s textovými bloky první nebo výchozí kategorie"
+
+#. Create a label and a list view for categories list.
+#. Label is above the list view.
+#. Translators: Label the list view that contains the categories
+#: addon\globalPlugins\frequentText\__init__.py:125
+#| msgid "Favorite folders list"
+msgid "Categories list"
+msgstr "Seznam kategorií"
+
+#. Translators: Button Label to show the entries in the selected category
+#: addon\globalPlugins\frequentText\__init__.py:138
+msgid "&Show entries"
+msgstr "&Zobrazit položky"
+
+#. Translators: Button Label to add a new category
+#. Translators: Button Label to add a new block.
+#: addon\globalPlugins\frequentText\__init__.py:143
+#: addon\globalPlugins\frequentText\__init__.py:343
+msgid "&Add"
+msgstr "&Přidat"
+
+#. Translators: Button Label that renames the name of the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:148
+#: addon\globalPlugins\frequentText\__init__.py:353
+msgid "Re&name"
+msgstr "Přejmenovat"
+
+#. Translators: Button Label to set the selected category as default
+#: addon\globalPlugins\frequentText\__init__.py:153
+msgid "Set &category as default"
+msgstr "Nastavit &kategorii jako výchozí"
+
+#. Translators: Button Label that removes the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:158
+#: addon\globalPlugins\frequentText\__init__.py:368
+msgid "&Remove"
+msgstr "&Odstranit"
+
+#. Translators: Button Label that closes the add-on.
+#: addon\globalPlugins\frequentText\__init__.py:162
+#: addon\globalPlugins\frequentText\__init__.py:377
+msgid "&Close"
+msgstr "&Zavřít"
+
+#. Translators: Message dialog box to add a name to a new category
+#: addon\globalPlugins\frequentText\__init__.py:188
+#| msgid "Enter a new nickname for %s"
+msgid "Enter a name for the category"
+msgstr "Zadejte název kategorie"
+
+#. Translators: Announcement that the category name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:197
+#: addon\globalPlugins\frequentText\__init__.py:245
+#| msgid "There is already a folder with this reference!"
+msgid "There is already a category with this name!"
+msgstr "Kategorie s tímto názvem již existuje!"
+
+#. Translators: Message dialog to rename the category
+#. Translators: Message dialog to rename the block of text.
+#: addon\globalPlugins\frequentText\__init__.py:227
+#: addon\globalPlugins\frequentText\__init__.py:502
+#, python-format
+msgid "Enter a new name for %s"
+msgstr "Zadejte nový název pro %s"
+
+#. Translators: Message dialog box to remove the selected category
+#. Translators: Message dialog box to remove the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:265
+#: addon\globalPlugins\frequentText\__init__.py:608
+#, python-format
+msgid "Are you sure you want to remove %s?"
+msgstr "Opravdu chcete odstranit %s?"
+
+#. Translators: Title of the column of the list view.
+#: addon\globalPlugins\frequentText\__init__.py:303
+#: addon\globalPlugins\frequentText\__init__.py:644
+msgid "Name"
+msgstr "název"
+
+#. Create a label and a list view for Frequent Text list.
+#. Label is above the list view.
+#. Translators: Label the list view that contains the Blocks.
+#: addon\globalPlugins\frequentText\__init__.py:330
+#, python-format
+msgid "List of text blocks of %s category"
+msgstr "Seznam textových bloků kategorie %s"
+
+#. Translators: Button Label that paste the block to the edit box.
+#: addon\globalPlugins\frequentText\__init__.py:348
+msgid "&Paste"
+msgstr "&Vložit"
+
+#. Translators: Button Label that change the blocks of text.
+#: addon\globalPlugins\frequentText\__init__.py:358
+msgid "&Change blocks"
+msgstr "&Změnit bloky"
+
+#. Translators: Label  for btton to move the selected block to other category.
+#: addon\globalPlugins\frequentText\__init__.py:363
+msgid "&Move"
+msgstr "&přesunout"
+
+#. Translators: Label  for button to go back to categories list.
+#: addon\globalPlugins\frequentText\__init__.py:373
+msgid "&Back to categories"
+msgstr "&Zpět do kategorií"
+
+#. Translators: Message dialog box to add a name to a new block.
+#: addon\globalPlugins\frequentText\__init__.py:406
+msgid "Enter a name for the block"
+msgstr "Zadejte název bloku"
+
+#. Translators: Announcement that the block name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:415
+#: addon\globalPlugins\frequentText\__init__.py:520
+msgid "There is already a block with this name!"
+msgstr "Blok s tímto názvem již existuje!"
+
+#. Translators: Message dialog box to add a new block of text.
+#: addon\globalPlugins\frequentText\__init__.py:425
+msgid "Enter the block of text"
+msgstr "Zadejte blok textu"
+
+#. Translators: Message dialog box to change a block of text.
+#: addon\globalPlugins\frequentText\__init__.py:537
+msgid ""
+"Change the block of text as you want and press Tab to Ok button and Enter to "
+"confirm"
+msgstr ""
+"Změňte blok textu, jak chcete, a stiskněte klávesu Tab na tlačítko Ok a "
+"potvrďte Enter"
+
+#. Translators: Message dialog box to move the selected block to other category.
+#: addon\globalPlugins\frequentText\__init__.py:573
+#, python-format
+msgid ""
+"If you really want to move %s from %s category, enter the name of the new, "
+"already existing, category"
+msgstr ""
+"Pokud opravdu chcete přesunout %s z kategorie %s, zadejte název nové, již "
+"existující kategorie"
+
+#. Translators: Announcement that the category does not exists.
+#: addon\globalPlugins\frequentText\__init__.py:589
+msgid "There is no such category!"
+msgstr "Taková kategorie neexistuje!"
+
+#. Translators: Message dialog box to ask user if wants to update.
+#: addon\globalPlugins\frequentText\update.py:95
+msgid ""
+"It is available a new version of this add-on.\n"
+" Do you want to update?"
+msgstr ""
+"Je k dispozici nová verze tohoto doplňku.\\n\n"
+" Chcete aktualizovat?"
+
+#. because is compatible
+#. because is incompatible
+#. Translators: Message dialog box to inform user that the add-on is not compatible
+#: addon\globalPlugins\frequentText\update.py:125
+msgid ""
+"This new version of this add-on is not compatible with your version of "
+"NVDA.\n"
+" The update process will be terminated."
+msgstr ""
+"Tato nová verze tohoto doplňku není kompatibilní s vaší verzí NVDA.\\n\n"
+" Proces aktualizace bude ukončen."
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\frequentText\update.py:144
+msgid "Check for updates at startup"
+msgstr "Zkontrolujte aktualizace při spuštění"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Regists blocks of text frequently used"
+msgstr "Registruje často používané bloky textu"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Stores and make possible the entry of frequently used blocks of text. "
+"Command: Windows+F12."
+msgstr ""
+"Ukládá a umožňuje zadávání často používaných bloků textu. Příkaz: Windows"
+"+F12."
+
+#~ msgid ""
+#~ "You do not have added folders and is not in the windows explorer window "
+#~ "to make a record"
+#~ msgstr ""
+#~ "No tienes ninguna carpeta registrada y no estás en la ventana del "
+#~ "Explorador de Windows para efectuar un registro"
+
+#~ msgid "Favorite folders"
+#~ msgstr "Carpetas favoritas"
+
+#~ msgid "&Show paths in the list"
+#~ msgstr "&Ver las direcciones en la lista"
+
+#~ msgid "&Open folder"
+#~ msgstr "Abrir carpe&ta"
+
+#~ msgid "Write in the e&dit box"
+#~ msgstr "Escriba en el cuadro de e&dición"
+
+#~ msgid "Ab&out"
+#~ msgstr "Ace&rca de"
+
+#~ msgid "File not found: %s."
+#~ msgstr "Archivo no encontrado: %s."
+
+#~ msgid "Nickname"
+#~ msgstr "Referencia"
+
+#~ msgid "Address"
+#~ msgstr "Dirección"
+
+#~ msgid "Enter a nickname"
+#~ msgstr "Entre com um nome de referência para a pasta"
+
+#~ msgid "&Past in editable text"
+#~ msgstr "&Colar em caixa de texto"
+
+#~ msgid "Add to group call"
+#~ msgstr "Adicionar à chamada em grupo"
+
+#~ msgid "Added to the conference"
+#~ msgstr "Adicionada a conferência"
+
+#~ msgid "Could not be added to the conference"
+#~ msgstr ""
+#~ "Não foi possível adicionar a chamada a conferência.Para utilizar esse "
+#~ "recurso você precisa ser o administrador da conferência."
+
+#~ msgid "Notify window not found"
+#~ msgstr "Janela de notificação de chamada não encontrada"

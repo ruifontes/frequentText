@@ -513,7 +513,7 @@ class FrequentTextDialog(wx.Dialog):
 		paste = blocks[name]
 		oldBlock = ""
 		for x in range(len(paste)):
-			oldBlock += ("%s \n")%paste[x]
+			oldBlock += ("%s\n")%paste[x]
 			x = x+1
 		self.dialogActive = True
 		# Translators: Message dialog box to change a block of text.

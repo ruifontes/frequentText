@@ -1,0 +1,275 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FrequentText\n"
+"POT-Creation-Date: 2021-08-09 02:06+0100\n"
+"PO-Revision-Date: 2024-04-05 17:50+0800\n"
+"Last-Translator: alan <alanzhangcn22@gmail.com>\n"
+"Language-Team: NVDACN.com\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ../../../GlobalPlugins\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. For translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\frequentText\__init__.py:53
+msgid ""
+"Opens a dialog box to registe, manage and paste frequent blocks of text."
+msgstr "打开一个对话框来注册、管理和粘贴常用的文本块。"
+
+#. For translators: Name of the section in "Input gestures" dialog.
+#: addon\globalPlugins\frequentText\__init__.py:55
+#: addon\globalPlugins\frequentText\__init__.py:93
+msgid "Text editing"
+msgstr "文本编辑"
+
+#. Translators: Title of categories list dialog box.
+#. Translators: Title of Blocks list dialog boxes.
+#: addon\globalPlugins\frequentText\__init__.py:66
+#: addon\globalPlugins\frequentText\__init__.py:80
+msgid "Frequent text"
+msgstr "常用文本"
+
+#. For translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\frequentText\__init__.py:91
+msgid "Opens a dialog box with the text blocks of first or default category"
+msgstr "打开包含第一个或默认类别的文本块的对话框"
+
+#. Create a label and a list view for categories list.
+#. Label is above the list view.
+#. Translators: Label the list view that contains the categories
+#: addon\globalPlugins\frequentText\__init__.py:125
+#| msgid "Favorite folders list"
+msgid "Categories list"
+msgstr "类别列表"
+
+#. Translators: Button Label to show the entries in the selected category
+#: addon\globalPlugins\frequentText\__init__.py:138
+msgid "&Show entries"
+msgstr "显示条目(&S)"
+
+#. Translators: Button Label to add a new category
+#. Translators: Button Label to add a new block.
+#: addon\globalPlugins\frequentText\__init__.py:143
+#: addon\globalPlugins\frequentText\__init__.py:343
+msgid "&Add"
+msgstr "添加(&A)"
+
+#. Translators: Button Label that renames the name of the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:148
+#: addon\globalPlugins\frequentText\__init__.py:353
+msgid "Re&name"
+msgstr "重命名(&N)"
+
+#. Translators: Button Label to set the selected category as default
+#: addon\globalPlugins\frequentText\__init__.py:153
+msgid "Set &category as default"
+msgstr "将类别设置为默认类别(&C)"
+
+#. Translators: Button Label that removes the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:158
+#: addon\globalPlugins\frequentText\__init__.py:368
+msgid "&Remove"
+msgstr "移除(&R)"
+
+#. Translators: Button Label that closes the add-on.
+#: addon\globalPlugins\frequentText\__init__.py:162
+#: addon\globalPlugins\frequentText\__init__.py:377
+msgid "&Close"
+msgstr "关闭(&C)"
+
+#. Translators: Message dialog box to add a name to a new category
+#: addon\globalPlugins\frequentText\__init__.py:188
+#| msgid "Enter a new nickname for %s"
+msgid "Enter a name for the category"
+msgstr "输入类别的名称"
+
+#. Translators: Announcement that the category name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:197
+#: addon\globalPlugins\frequentText\__init__.py:245
+#| msgid "There is already a folder with this reference!"
+msgid "There is already a category with this name!"
+msgstr "已经有一个类别具有此名称！"
+
+#. Translators: Message dialog to rename the category
+#. Translators: Message dialog to rename the block of text.
+#: addon\globalPlugins\frequentText\__init__.py:227
+#: addon\globalPlugins\frequentText\__init__.py:502
+#, python-format
+msgid "Enter a new name for %s"
+msgstr "输入%s的新名称"
+
+#. Translators: Message dialog box to remove the selected category
+#. Translators: Message dialog box to remove the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:265
+#: addon\globalPlugins\frequentText\__init__.py:608
+#, python-format
+msgid "Are you sure you want to remove %s?"
+msgstr "您确定要删除%s吗？"
+
+#. Translators: Title of the column of the list view.
+#: addon\globalPlugins\frequentText\__init__.py:303
+#: addon\globalPlugins\frequentText\__init__.py:644
+msgid "Name"
+msgstr "名称"
+
+#. Create a label and a list view for Frequent Text list.
+#. Label is above the list view.
+#. Translators: Label the list view that contains the Blocks.
+#: addon\globalPlugins\frequentText\__init__.py:330
+#, python-format
+msgid "List of text blocks of %s category"
+msgstr "%s类别的文本块列表"
+
+#. Translators: Button Label that paste the block to the edit box.
+#: addon\globalPlugins\frequentText\__init__.py:348
+msgid "&Paste"
+msgstr "粘贴(&P)"
+
+#. Translators: Button Label that change the blocks of text.
+#: addon\globalPlugins\frequentText\__init__.py:358
+msgid "&Change blocks"
+msgstr "更改块(&C)"
+
+#. Translators: Label  for btton to move the selected block to other category.
+#: addon\globalPlugins\frequentText\__init__.py:363
+msgid "&Move"
+msgstr "移动(&M)"
+
+#. Translators: Label  for button to go back to categories list.
+#: addon\globalPlugins\frequentText\__init__.py:373
+msgid "&Back to categories"
+msgstr "返回类别(&B)"
+
+#. Translators: Message dialog box to add a name to a new block.
+#: addon\globalPlugins\frequentText\__init__.py:406
+msgid "Enter a name for the block"
+msgstr "输入块的名称"
+
+#. Translators: Announcement that the block name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:415
+#: addon\globalPlugins\frequentText\__init__.py:520
+msgid "There is already a block with this name!"
+msgstr "已经有一个具有此名称的块！"
+
+#. Translators: Message dialog box to add a new block of text.
+#: addon\globalPlugins\frequentText\__init__.py:425
+msgid "Enter the block of text"
+msgstr "输入文本块"
+
+#. Translators: Message dialog box to change a block of text.
+#: addon\globalPlugins\frequentText\__init__.py:537
+msgid ""
+"Change the block of text as you want and press Tab to Ok button and Enter to "
+"confirm"
+msgstr "根据需要更改文本块，之后按Tab键导航至确定按钮，然后按回车键确认"
+
+#. Translators: Message dialog box to move the selected block to other category.
+#: addon\globalPlugins\frequentText\__init__.py:573
+#, python-format
+msgid ""
+"If you really want to move %s from %s category, enter the name of the new, "
+"already existing, category"
+msgstr "如果确实要将%s从%s类别中移动，请输入新的、已存在的类别的名称"
+
+#. Translators: Announcement that the category does not exists.
+#: addon\globalPlugins\frequentText\__init__.py:589
+msgid "There is no such category!"
+msgstr "没有这样的类别！"
+
+#. Translators: Message dialog box to ask user if wants to update.
+#: addon\globalPlugins\frequentText\update.py:95
+msgid ""
+"It is available a new version of this add-on.\n"
+" Do you want to update?"
+msgstr ""
+"它提供了此附加组件的新版本。\n"
+"是否要更新？"
+
+#. because is compatible
+#. because is incompatible
+#. Translators: Message dialog box to inform user that the add-on is not compatible
+#: addon\globalPlugins\frequentText\update.py:125
+msgid ""
+"This new version of this add-on is not compatible with your version of "
+"NVDA.\n"
+" The update process will be terminated."
+msgstr ""
+"此插件的新版本与您的NVDA版本不兼容。\n"
+"更新过程将终止。"
+
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\frequentText\update.py:144
+msgid "Check for updates at startup"
+msgstr "启动时检查更新"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Regists blocks of text frequently used"
+msgstr "注册常用的文本块"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Stores and make possible the entry of frequently used blocks of text. "
+"Command: Windows+F12."
+msgstr "存储并允许输入常用的文本块。命令：Windows+F12。"
+
+#~ msgid ""
+#~ "You do not have added folders and is not in the windows explorer window "
+#~ "to make a record"
+#~ msgstr ""
+#~ "No tienes ninguna carpeta registrada y no estás en la ventana del "
+#~ "Explorador de Windows para efectuar un registro"
+
+#~ msgid "Favorite folders"
+#~ msgstr "Carpetas favoritas"
+
+#~ msgid "&Show paths in the list"
+#~ msgstr "&Ver las direcciones en la lista"
+
+#~ msgid "&Open folder"
+#~ msgstr "Abrir carpe&ta"
+
+#~ msgid "Write in the e&dit box"
+#~ msgstr "Escriba en el cuadro de e&dición"
+
+#~ msgid "Ab&out"
+#~ msgstr "Ace&rca de"
+
+#, python-format
+#~ msgid "File not found: %s."
+#~ msgstr "Archivo no encontrado: %s."
+
+#~ msgid "Nickname"
+#~ msgstr "Referencia"
+
+#~ msgid "Address"
+#~ msgstr "Dirección"
+
+#~ msgid "Enter a nickname"
+#~ msgstr "Entre com um nome de referência para a pasta"
+
+#~ msgid "&Past in editable text"
+#~ msgstr "&Colar em caixa de texto"
+
+#~ msgid "Add to group call"
+#~ msgstr "Adicionar à chamada em grupo"
+
+#~ msgid "Added to the conference"
+#~ msgstr "Adicionada a conferência"
+
+#~ msgid "Could not be added to the conference"
+#~ msgstr ""
+#~ "Não foi possível adicionar a chamada a conferência.Para utilizar esse "
+#~ "recurso você precisa ser o administrador da conferência."
+
+#~ msgid "Notify window not found"
+#~ msgstr "Janela de notificação de chamada não encontrada"

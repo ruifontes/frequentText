@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 'frequentText' '2024.03.22'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2025-02-25 19:35+0800\n"
+"PO-Revision-Date: 2025-02-25 19:47+0800\n"
+"Last-Translator: Alan <alanzhangmw@outlook.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+
+#. Translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\frequentText\__init__.py:66
+msgid ""
+"Opens a dialog box to registe, manage and paste frequent blocks of text."
+msgstr "打开一个对话框，用于注册、管理和粘贴频繁使用的文本块。"
+
+#. Translators: Name of the section in "Input gestures" dialog.
+#: addon\globalPlugins\frequentText\__init__.py:68
+#: addon\globalPlugins\frequentText\__init__.py:82
+msgid "Text editing"
+msgstr "文本编辑"
+
+#. Ttranslators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\frequentText\__init__.py:80
+msgid "Opens a dialog box with the text blocks of first or default category"
+msgstr "打开一个对话框，其中包含第一类或默认类别的文本块"
+
+#: addon\globalPlugins\frequentText\__init__.py:106
+#: addon\globalPlugins\frequentText\__init__.py:300
+msgid "Frequent text"
+msgstr "常用文本"
+
+#. Create a label and a list view for categories list. Label is above the list view.
+#. Translators: Label the list view that contains the categories
+#: addon\globalPlugins\frequentText\__init__.py:116
+msgid "Categories list"
+msgstr "类别列表"
+
+#. Translators: Button Label to show the entries of a category
+#: addon\globalPlugins\frequentText\__init__.py:129
+msgid "&Show entries"
+msgstr "显示条目(&S)"
+
+#. Translators: Button Label to add a new category
+#: addon\globalPlugins\frequentText\__init__.py:135
+#: addon\globalPlugins\frequentText\__init__.py:325
+msgid "&Add"
+msgstr "添加(&A)"
+
+#. Translators: Button Label that renames the name of the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:141
+#: addon\globalPlugins\frequentText\__init__.py:337
+msgid "Re&name"
+msgstr "重命名(&N)"
+
+#. Translators: Button Label to set the selected category as default
+#: addon\globalPlugins\frequentText\__init__.py:145
+msgid "Set &category as default"
+msgstr "设为默认类别(&C)"
+
+#. Translators: Button Label that removes the selected category.
+#. Translators: Button Label that removes the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:149
+#: addon\globalPlugins\frequentText\__init__.py:349
+msgid "&Remove"
+msgstr "移除(&R)"
+
+#. Translators: Message dialog box to add a name to a new category
+#: addon\globalPlugins\frequentText\__init__.py:193
+msgid "Enter a name for the category"
+msgstr "输入类别名称"
+
+#. Translators: Announcement that the category name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:197
+#: addon\globalPlugins\frequentText\__init__.py:245
+msgid "There is already a category with this name!"
+msgstr "已存在同名类别！"
+
+#. Translators: Message dialog to rename the category
+#. Translators: Message dialog to rename the block of text.
+#: addon\globalPlugins\frequentText\__init__.py:229
+#: addon\globalPlugins\frequentText\__init__.py:487
+#, python-format
+msgid "Enter a new name for %s"
+msgstr ""
+
+#. Translators: Message asking if user wants to remove the selected category
+#. Translators: Message dialog box to remove the selected block.
+#: addon\globalPlugins\frequentText\__init__.py:265
+#: addon\globalPlugins\frequentText\__init__.py:595
+#, python-format
+msgid "Are you sure you want to remove %s?"
+msgstr "您确定要删除 %s 吗？"
+
+#. Create a label and a list view for categories list.
+#. Label is above the list view.
+#. Translators: Label the list view that contains the categories
+#: addon\globalPlugins\frequentText\__init__.py:312
+#, python-format
+msgid "List of text blocks of %s category"
+msgstr "%s类别的文本块列表"
+
+#. Translators: Button Label that paste the block to the edit box.
+#: addon\globalPlugins\frequentText\__init__.py:331
+msgid "&Paste"
+msgstr "粘贴(&P)"
+
+#. Translators: Button Label that change the blocks of text.
+#: addon\globalPlugins\frequentText\__init__.py:341
+msgid "&Change blocks"
+msgstr "更改块(&C)"
+
+#. Translators: Label  for button to move the selected block to other category.
+#: addon\globalPlugins\frequentText\__init__.py:345
+msgid "&Move"
+msgstr "移动(&M)"
+
+#. Translators: Label  for button to go back to categories list.
+#: addon\globalPlugins\frequentText\__init__.py:353
+msgid "&Back to categories"
+msgstr "返回类别(&B)"
+
+#. Translators: Message dialog box to add a name to a new block.
+#: addon\globalPlugins\frequentText\__init__.py:389
+msgid "Enter a name for the block"
+msgstr "输入块的名称"
+
+#. Translators: Announcement that the block name already exists in the list.
+#: addon\globalPlugins\frequentText\__init__.py:393
+#: addon\globalPlugins\frequentText\__init__.py:503
+msgid "There is already a block with this name!"
+msgstr "已存在同名块！"
+
+#. Translators: Message dialog box to add a new block of text.
+#: addon\globalPlugins\frequentText\__init__.py:403
+msgid "Enter the block of text"
+msgstr "输入文本块"
+
+#. Translators: Message dialog box to change a block of text.
+#: addon\globalPlugins\frequentText\__init__.py:520
+msgid ""
+"Change the block of text as you want and press Tab to Ok button and Enter to "
+"confirm"
+msgstr "根据需要更改文本块，按Tab键到“确定”按钮，按回车键确认"
+
+#. Translators: Message dialog box to move the selected block to other category.
+#: addon\globalPlugins\frequentText\__init__.py:554
+#, python-format
+msgid ""
+"If you really want to move %s from %s category, enter the name of the new, "
+"already existing, category"
+msgstr "如果您真的想将%s从%s类别中移动，请输入新的、已存在的类别的名称"
+
+#. Translators: Announcement that the category does not exists.
+#: addon\globalPlugins\frequentText\__init__.py:578
+msgid "There is no such category!"
+msgstr "没有这样的类别！"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Regists blocks of text frequently used"
+msgstr "注册常用的文本块"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Stores and make possible the entry of frequently used blocks of text. "
+"Command: Windows+F12."
+msgstr "存储并允许输入常用的文本块。命令：Windows+F12。"
+
+#. Author(s)
+#: buildVars.py:30
+msgid ""
+"Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail."
+"com> and Abel Passos Júnior"
+msgstr ""
+"Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail."
+"com> 和 Abel Passos Júnior"

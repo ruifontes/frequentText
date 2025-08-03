@@ -32,4 +32,4 @@ Metin bloğunu bir düzenleme alanına yapıştırmak için bloğu seçin ve Ent
 Eklenti iletişim kutusunda ayrıca yeniden adlandırabilir, içeriği değiştirebilir, başka bir kategoriye geçebilir, metin bloğunu silebilir veya kategoriler iletişim kutusuna geri dönebilirsiniz.  
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon

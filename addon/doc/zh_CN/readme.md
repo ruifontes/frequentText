@@ -32,4 +32,4 @@
 在“附加对话框”框中，您还可以重命名，更改内容，移动到其他类别，删除文本块或返回类别对话框。
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon

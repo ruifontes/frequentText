@@ -32,4 +32,4 @@ Chcete-li vložit blok textu do editačního pole, stačí blok vybrat a stiskno
 V dialogovém okně doplňku můžete také přejmenovat, změnit obsah, přesunout se do jiné kategorie, odstranit blok textu nebo se vrátit do dialogu kategorií.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon

@@ -31,4 +31,4 @@ Para pegar el bloque de texto en un campo de edición, simplemente seleccione el
 En las opciones del complemento también puede cambiar el nombre, cambiar el contenido, pasar a otra categoría, eliminar el bloque de texto o volver al diálogo de categorías.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon

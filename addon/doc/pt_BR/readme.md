@@ -32,4 +32,4 @@ Para colar o bloco de texto num campo de edição, seleccione o bloco e pression
 Na caixa de diálogo da lista de blocos também pode renomear, alterar o conteúdo, mudar de categoria, eliminar um bloco de texto, ou voltar para a caixa de diálogo das categorias.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon

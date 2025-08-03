@@ -32,4 +32,4 @@ To paste the block of text in an edit field, just select the block and press Ent
 In the add-on dialog box you also can rename, change the contents, move to other category, delete the block of text or go back to categories dialog.
 
 
-[1]: https://github.com/ruifontes/frequentText/releases/download/2024.03.22/frequentText-2024.03.22.nvda-addon
+[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon

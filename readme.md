@@ -1,22 +1,26 @@
-# Frequent text #
+# \#Frequent text
 
 
-## Information
+
+## \##Information
+
 * Authors: Rui Fontes, Ângelo Abrantes and Abel Passos Júnior, based on work of Marcos António de Oliveira
-* Updated in 22/03/2024
-* Download [stable version][1]
 * Compatibility: NVDA version 2021.1 and beyond
 
 
-## Presentation
+
+## \##Presentation
+
 This add-on provides a way to quickly insert blocks of text you type frequently in documents you write.
 To better organize the text blocks, they can be grouped into categories.
 It is possible to set a category as default to quickly access its blocks.
 
 
-## Usage
+
+## \##Usage
+
 To start using this add-on you will need to set the categories and fill the blocks of text you want to use.
-For that, first press Windows+f12. You can modify this command in the "Input gestures" dialog box in the "Text editing" section.
+For that, first press Windows+f12. You can modify this command in the "Input gestures" dialog box in the "Text ###editing" section.
 A dialog box will be displayed where the existing categories will be shown. In the first use you should press Enter, or TAB to the "Add" button and activate it, to create the categories you want to use.
 With a selected category, pressing Enter or activating the "Show Blocks" button, a dialog box with the text blocks in this category will be displayed.
 In addition to the "Add" and "Show Blocks" options, you also have the "Rename", "Set as default" and "Delete" options.
@@ -31,5 +35,3 @@ To paste the block of text in an edit field, just select the block and press Ent
 
 In the add-on dialog box you also can rename, change the contents, move to other category, delete the block of text or go back to categories dialog.
 
-
-[1]: https://github.com/ruifontes/frequentText/releases/download/2025.08.03/frequentText-2025.08.03.nvda-addon
